@@ -27,7 +27,7 @@ module Escool
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Madrid'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -55,8 +55,17 @@ module Escool
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.to_prepare do
+      Devise::SessionsController.layout "not_logged"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "not_logged" }
+      Devise::ConfirmationsController.layout "not_logged"
+      Devise::UnlocksController.layout "not_logged"
+      Devise::PasswordsController.layout "not_logged"
+    end
   end
 end
