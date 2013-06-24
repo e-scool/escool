@@ -31,7 +31,8 @@ module Escool
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :ca
+    config.i18n.locale = :ca
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -56,6 +57,7 @@ module Escool
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w( application-app.css application-website.css website.js ) # active_admin.css active_admin.js active_admin/print.css
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

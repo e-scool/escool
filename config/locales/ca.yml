@@ -1,0 +1,30 @@
+ca:
+  website:
+    what_is: "Què és e-Scool?"
+    objectives: "Objectius"
+    who_are: "Qui som?"
+    contact: "Contacte"
+    copyright: "Tots els drets reservats"
+    follow_us: "Segueix-nos a:"
+    soon: "Pròximament!"
+    labels:
+      name: "Nom"
+      email: "E-mail"
+      message: "Missatge"
+      send: "Enviar"
+    content:
+      what_is_html: "<p>És una <span class='orange'>aplicació web i mòbil que permet millorar la comunicació entre escola-família</span>, facilitant la informació més rellevant dels alumnes segons les necessitats de cada centre mitjançant un disseny senzill que permet un ús intuïtiu i fàcil per tots els usuaris.</p><p>El nostre servei pot treballar paral·lelament amb la intranet de la pròpia escola i la web o blog del centre educatiu.</p>"
+      objectives_html: "<p>L'objectiu d'e-Scool és <span class='orange'>cobrir les necessitats comunicatives de cada centre educatiu centrant-nos en les diferents etapes escolars</span>: Educació Infantil (primer i segon cicle), Educació Primària, Educació Secundària Obligatòria i Batxillerat.</p><p>Pretenem <span class='orange'>crear un vincle comunicatiu, ràpid, sostenible i eficient, entre els principals agents socialitzadors dels nens i joves: la societat, la família i l’escola</span> Actualment, l’ús dels smartphones, tauletes i ordinadors és a l’ordre del dia i és per aquest motiu que considerem essencial <span class='orange'>un canvi en la manera de transmetre la informació per part de les escoles</span>. La realitat que ens envolta ens condueix a noves solucions per <span class='orange'>adaptar-nos als nous temps</span> i e-Scool és l’eina que ens ho permet.</p><p>Les accions que es duen a terme a diari són les que poden arribar a afectar en la qualitat de vida de les noves generacions i per això busquem una nova oportunitat de <span class='orange'>participar en la conscienciació ambiental</span>. La cura de l’entorn que es promou des de les escoles és un fet més que ha impulsat a e-Scool a voler contribuir en aquesta causa. El nostre servei té com a objectiu <span class='orange'>eliminar pràcticament qualsevol tipus de comunicació en paper</span>.</p>"
+      who_are_html: "<p>L'inici de la idea va sorgir de <span class='orange'>la unió de dos pensaments</span>: l'adaptació de l'escola a la societat actual i el ritme frenètic del desenvolupament tecnològic que vivim. Som un <span class='orange'>equip de professionals relacionats amb el món de l’educació i les tecnologies</span> que creiem que la suma dels nostres talents pot contribuir en la millora de la comunicació actual en els centres educatius. El nostre equip està <span class='orange'>compromès amb l'educació mediambiental</span> i considera aquest projecte <span class='orange'>una eina més per avançar cap a un futur millor</span>.</p><p>Aprofitant que 2013 és l’any de l’educació creiem que és el moment de la innovació, del canvi i de les millores. Desitgem que la nostra idea serveixi per a millorar una mica més les condicions del desenvolupament dels infants. Els petits i joves són el futur, per aquest motiu cal que siguem capaços de continuar vetllant pel seu benestar tots plegats.</p>"
+      contact_html: "<p>Per a qualsevol consulta o suggeriment no dubteu en contactar-nos mitjançant el següent formulari o a través del nostre correu electrònic: <a href='mailto:info@e-scool.com'>info@e-scool.com</a></p>"
+
+  login: "Inicia sessió"
+
+  sections:
+    dashboard: "Inici"
+    calendar: "Calendari"
+    daily_activities: "Dia a dia"
+    lunch_reports: "Menjador"
+    materials: "Material"
+    communications: "Comunicacions"
+    teacher: "Docents"

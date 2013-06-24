@@ -44,3 +44,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'devise'
+gem 'simple_form'
+gem 'bootstrap-sass'

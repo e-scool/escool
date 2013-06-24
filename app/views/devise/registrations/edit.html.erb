@@ -1,0 +1,30 @@
+<h2>Editar perfil</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name, :required => true unless resource.parent? %>
+      <%= f.input :email, :required => true %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <%#= f.input :username, :required => true %>
+      <%= f.input :password, :autocomplete => "off", :hint => "deixa'l en blanc si no el vols canviar", :required => false %>
+      <%= f.input :password_confirmation, :required => false %>
+      <%= f.input :current_password, :hint => "és necessari el password actual per actualitzar les dades", :required => true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Guarda" %>
+    </div>
+<% end %>
+
+<% if false %>
+    <h3>Cancel my account</h3>
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+<% end %>
+
+<%= link_to "Tornar", :back %>

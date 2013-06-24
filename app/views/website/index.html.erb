@@ -1,0 +1,17 @@
+<div id="que-es" class="content-left">
+  <h2><%= t("website.what_is") %></h2>
+  <%= raw t("website.content.what_is_html") %>
+</div>
+<div id="objectius" class="content-left" style="display: none;">
+  <h2><%= t("website.objectives") %></h2>
+  <%= t("website.content.objectives_html") %>
+</div>
+<div id="qui-som" class="content-left" style="display: none;">
+  <h2><%= t("website.who_are") %></h2>
+  <%= t("website.content.who_are_html") %>
+</div>
+<div id="contacte" class="content-left" style="display: none;">
+  <h2><%= t("website.contact") %></h2>
+  <%= t("website.content.contact_html") %>
+  <%= render :partial => "contact_form" %>
+</div>

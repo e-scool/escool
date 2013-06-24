@@ -1,6 +1,16 @@
 Escool::Application.routes.draw do
+
+  root :to => "website#index"
+  match 'contact' => 'website#contact', :as => 'contact', :via => :post
   
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout" }, :skip => [:registrations]
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new", :as => "login"
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    #root to: "devise/sessions#new"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
