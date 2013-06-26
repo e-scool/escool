@@ -33,15 +33,22 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
+      ## School
+      t.integer :school_id, :null => false
+
       ## User type (Parent/Teacher/SchoolManager)
       t.string :type, :null => false
 
-      # Attributes
+      ## Attributes
       t.string :name, :null => false
+      t.string :username, :null => false
+      t.integer :current_child_id
+      t.integer :current_classroom_id
 
       t.timestamps
     end
 
+    add_index :users, :school_id
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
