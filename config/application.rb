@@ -62,6 +62,9 @@ module Escool
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # Quite assets (false to show on log)
+    # config.quiet_assets = false
+
     config.to_prepare do
       Devise::SessionsController.layout "not_logged"
       Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "not_logged" }
