@@ -1,0 +1,21 @@
+<div class="userbox">
+  <div class="btn-group select-child">
+    <a class="btn btn-success" href="#"><%= current_user.current_child.name %></a>
+    <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <% if current_user.children.count > 1 %>
+      <% current_user.children.each do |c| %>
+      <% unless c.id == current_user.current_child_id %>
+      <li><a href="/update-child/<%= c.id %>"><i class="icon-user"></i> <%= c.name %></a></li>
+      <% end %>
+      <% end %>
+      <li class="divider"></li>
+      <% end %>
+      <li><a href="<%= edit_user_registration_path %>"><i class="icon-edit"></i> <%= t "devise.links.edit_profile" %></a></li>
+      <li><a href="<%= destroy_user_session_path %>" data-method="delete"><i class="icon-off"></i> <%= t "devise.links.logout" %></a></li>
+    </ul>
+  </div>
+  <br />
+  <span class="class-info">Classe: <%= current_user.current_child.classroom.name %></span>
+  <div class="clearfix"></div>
+</div>

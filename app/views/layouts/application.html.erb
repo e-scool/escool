@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Escool</title>
-  <%= stylesheet_link_tag    "application-app", :media => "all" %>
+  <title>e-Scool</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="ie.css" type="text/css" media="screen, projection" />
+  <![endif]-->
+  <%= stylesheet_link_tag "application-app", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield :jsheader %>
 </head>
 <body>
+	<%= render :partial => 'layouts/messages' %>
 
-<%= yield %>
+  <%= render :partial => 'shared/sidebar' %>
+
+	<%= yield %>
+</div>
 
 </body>
 </html>
