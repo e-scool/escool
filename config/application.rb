@@ -57,7 +57,7 @@ module Escool
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += %w( application-app.css application-website.css website.js active_admin.css active_admin.js active_admin/print.css )
+    config.assets.precompile += %w( application-app.css application-website.css active_admin.css active_admin.js ) # active_admin/print.css
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
