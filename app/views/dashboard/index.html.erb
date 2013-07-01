@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1><img src="<%= asset_path('icons/dashboard.png') %>" />Inici <small><%= header_subtitle %></small></h1>
+</div>
+
+<div id="dashboard">
+  <div class="widget">
+    <span class="title"><img src="<%= asset_path('icons/materials-mini.png') %>" />Proper material</span>
+    <% if @material %>
+        <div class="resume rounded-corners-5">
+          <p class="title"><%= I18n.l(@material.date, :format => :long) %></p>
+          <p class="body"><%= @material.title %></p>
+        </div>
+    <% else %>
+        <p class="no-items">No s'ha demanat cap material</p>
+    <% end %>
+  </div>
+  <div class="widget">
+    <span class="title"><img src="<%= asset_path('icons/communications-mini.png') %>" />Última comunicació</span>
+    <% if @communication %>
+        <div class="resume rounded-corners-5">
+          <p class="title"><%= @communication.title %></p>
+          <p class="body"><%= @communication.body %></p>
+        </div>
+    <% else %>
+        <p class="no-items">No hi ha cap comunicació</p>
+    <% end %>
+  </div>
+</div>

@@ -2,7 +2,13 @@ Escool::Application.routes.draw do
 
   root :to => "website#index"
   match 'contact' => 'website#contact', :as => 'contact', :via => :post
-  
+
+  ActiveAdmin.routes(self)
+
+  post "/admin/schools/:school_id/children/change_parents" => "admin/children#change_parents"
+  post "/admin/schools/:school_id/children/change_classrooms" => "admin/children#change_classrooms"
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout" }, :skip => [:registrations]
 
   devise_scope :user do
@@ -11,6 +17,11 @@ Escool::Application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
     #root to: "devise/sessions#new"
   end
+
+  match '/update-child/:child_id' => "dashboard#update_current_child", :as => "update_current_child"
+  match '/update-classroom/:classroom_id' => "dashboard#update_current_classroom", :as => "update_current_classroom"
+
+  get "/dashboard" => "dashboard#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
