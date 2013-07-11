@@ -42,56 +42,144 @@ body {
         }
         span.sep {
           float: left;
-          color: #ff9b40;
+          color: $orange;
           padding: 0 8px;
           font-size: 18px;
         }
       }
     }
   }
+  #content {
+    width: 880px;
+    padding: 0 40px;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: 'Actor', sans-serif;    
+    .content-left {
+      float: left;
+      width: 520px;
+      height: 287px;
+      margin: -20px 0 0 60px;
+      padding: 60px 35px 30px 35px;
+      h2 {
+        color: $orange;
+        font-size: 18px;        
+        font-family: 'Indie Flower', cursive;
+      }
+      p {
+        line-height: 125%;
+        margin: 15px 0 0 0;
+      }
+      a {
+        color: $orange;
+        text-decoration: none;
+        border-bottom: 1px solid $orange;
+        &:hover {
+          color: #ff7700;
+          border-bottom: 1px solid #ff7700;
+        }
+      }
+      &#que-es {
+        background: url("/assets/website/bg-box-quees.png") no-repeat center center;
+      }
+      &#objectius {
+        background: url("/assets/website/bg-box-objectius.png") no-repeat center center;
+      }
+      &#qui-som {
+        background: url("/assets/website/bg-box-quisom.png") no-repeat center center;
+      }
+      &#contacte {
+        background: url("/assets/website/bg-box-contacte.png") no-repeat center center;
+        form#contact-form {
+          width: 390px;
+          margin: 20px 0 0 0;
+          .form-group {
+            margin: 6px 0 0 0;
+            label {
+              float: left;
+              width: 70px;
+              margin: 7px 0 0 0; 
+            }
+            input[type=text], textarea {
+              float: right;
+              padding: 6px 8px;
+              border: 1px solid $orange;
+              @include border-radius(15px);
+              &:focus {
+                outline: none;
+              }
+            }
+            input[type=text] {
+              width: 200px;
+              margin: 0 100px 0 0;
+            }
+            textarea {
+              width: 300px;
+              margin: 0;
+              resize: none;
+            }
+            input[type=submit] {
+              float: right;
+              margin: 0;
+              padding: 5px 16px;
+              color: #fff;
+              background: $orange;
+              font-size: 13px;              
+              border: none;
+              @include border-radius(15px);
+            }
+          }
+        }
+      }
+    }
+    .content-right {
+      float: right;
+      width: 213px;
+      height: 200px;
+      margin: 30px -10px 0 0;      
+      position: relative;
+      background: url("/assets/website/bg-social.png") no-repeat center center;
+      #social-links {
+        margin: 25px;
+        font-family: 'Indie Flower', cursive;
+        p {
+          font-size: 18px;
+        }
+        a {
+          float: left;
+          margin: 10px 0 0 0;
+          img {
+            float: left;
+          }
+        }
+      }
+      span {
+        position: absolute;
+        bottom: 14px;
+        right: 30px;
+        font-size: 20px;
+        color: #fff; font-family: 'Indie Flower', cursive;
+      }
+    }
+  }
+  #wrapper-footer {
+    padding: 15px 0;
+    margin: 40px 0 0 0;
+    width: 960px;
+    background: $orange; /* Old browsers */
+    @include background-image(linear-gradient(top, $orange, $dark_orange));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$orange', endColorstr='$dark_orange',GradientType=1 ); /* IE6-9 */
+    #footer {
+      max-width: 960px;
+      margin: 0 auto;
+      color: #fff;
+      font-family: 'Indie Flower', cursive;
+      font-size: 14px;
+      p {
+        text-align: center;
+      }
+    }
+  }
 }
 
-
-
-
-div#wrapper-content div#content { width: 880px; padding: 0 40px; margin: 0 auto; font-family: 'Actor', sans-serif; font-size: 13px; }
-div#wrapper-content div#content div.content-left { width: 520px; height: 287px; margin: -20px 0 0 60px; padding: 60px 35px 30px 35px; float: left; }
-div#wrapper-content div#content div.content-left h2 { font-size: 18px; color: #ff9b40; font-family: 'Indie Flower', cursive; }
-div#wrapper-content div#content div.content-left p { line-height: 125%; margin: 15px 0 0 0; }
-div#wrapper-content div#content div.content-left a { color: #ff9b40; text-decoration: none; border-bottom: 1px solid #ff9b40; }
-div#wrapper-content div#content div.content-left a:hover { color: #ff7700; border-bottom: 1px solid #ff7700; }
-div#wrapper-content div#content div.content-left#que-es { background: url("/assets/website/bg-box-quees.png") no-repeat center center; }
-div#wrapper-content div#content div.content-left#objectius { background: url("/assets/website/bg-box-objectius.png") no-repeat center center; }
-div#wrapper-content div#content div.content-left#qui-som { background: url("/assets/website/bg-box-quisom.png") no-repeat center center; }
-div#wrapper-content div#content div.content-left#contacte { background: url("/assets/website/bg-box-contacte.png") no-repeat center center; }
-div#wrapper-content div#content div#content-right { width: 213px; height: 200px; margin: 30px -10px 0 0; float: right; position: relative; background: url("/assets/website/bg-social.png") no-repeat center center; }
-div#wrapper-content div#content div#content-right div#social-links { margin: 25px; font-family: 'Indie Flower', cursive; }
-div#wrapper-content div#content div#content-right div#social-links p { font-size: 18px; }
-div#wrapper-content div#content div#content-right div#social-links a { margin: 10px 0 0 0; float: left; }
-div#wrapper-content div#content div#content-right div#social-links a img { float: left; }
-div#wrapper-content div#content div#content-right span { position: absolute; bottom: 14px; right: 30px; color: #fff; font-family: 'Indie Flower', cursive; font-size: 20px; }
-
-form#contact-form { width: 390px; margin: 20px 0 0 0; }
-form#contact-form div.form-group { margin: 6px 0 0 0; }
-form#contact-form div.form-group label { width: 70px; margin: 7px 0 0 0; float: left; }
-form#contact-form div.form-group input[type=text], form#contact-form div.form-group textarea { float: right; padding: 6px 8px; border: 1px solid #ff9b40; -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px; }
-form#contact-form div.form-group input[type=text] { width: 200px; margin: 0 100px 0 0; }
-form#contact-form div.form-group textarea { width: 300px; margin: 0; resize: none; }
-form#contact-form div.form-group input[type=text]:focus, form#contact-form div.form-group textarea:focus { outline: none; }
-form#contact-form div.form-group input[type=submit] { float: right; margin: 0; padding: 5px 16px; color: #fff; font-size: 13px; background: #ff9b40; border: none; -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px; }
-
-div#wrapper-footer { padding: 15px 0; margin: 40px 0 0 0; width: 960px; background: #ff9b40; }
-div#wrapper-footer {
-    background: -moz-linear-gradient(top, #ff9b40 0%, #ff7700 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff9b40), color-stop(100%,#ff7700)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #ff9b40 0%,#ff7700 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #ff9b40 0%,#ff7700 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #ff9b40 0%,#ff7700 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #ff9b40 0%,#ff7700 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9b40', endColorstr='#ff7700',GradientType=0 ); /* IE6-9 */
-}
-div#wrapper-footer div#footer { max-width: 960px; margin: 0 auto; color: #fff; font-family: 'Indie Flower', cursive; font-size: 14px; }
-div#wrapper-footer div#footer p { text-align: center; }
-
-.orange { color: #ff9b40; }
 .clear { clear: both; visibility: hidden; height: 0; }

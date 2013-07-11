@@ -10,7 +10,7 @@ body {
     overflow: scroll;
     background: #ffebdd; /* Old browsers */
     @include background-image(linear-gradient(top, #ffebdd, #ffcfad));
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffebdd', endColorstr='#ffcfad',GradientType=0 ); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffebdd', endColorstr='#ffcfad',GradientType=1 ); /* IE6-9 */
     a.logo {
       width: 140px;
       margin: 5% auto 0 auto;
