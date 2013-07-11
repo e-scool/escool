@@ -1,16 +1,59 @@
-body { padding-top: 40px; background: url("/assets/website/bg.png") repeat; }
+body {
+  padding-top: 40px;
+  background: url("/assets/website/bg.png") repeat;
+}
 
-div#wrapper-content { width: 960px; margin: 0 auto; background: #fff; border: 1px solid #EEE; -moz-box-shadow: 0 0 10px #CCC; -webkit-box-shadow: 0 0 10px #CCC; box-shadow: 0 0 10px #CCC; }
-div#wrapper-content div#header { width: 880px; padding: 30px 40px 0 40px; font-family: 'Indie Flower', cursive; }
-div#wrapper-content div#header a.logo, div#wrapper-content div#header a.logo img { float: left; width: 140px; }
+#wrapper-content {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #EEE;
+  @include box-shadow(0 0 10px #CCC);
+  #header {
+    width: 880px;
+    padding: 30px 40px 0 40px;
+    font-family: 'Indie Flower', cursive;    
+    a.logo {
+      float: left;
+      img {
+        display: block;
+      }
+    }
+    ul {
+      &#right-menu {
+        float: right;
+        margin: 30px 0 0 0;        
+      }
+      &#main-menu {
+        float: left;
+        margin: 30px 0 0 20px;
+      }
+      li {
+        float: left;
+        display: inline-block;
+        a {
+          float: left;
+          color: #000;
+          text-decoration: none;
+          font-size: 18px;
+          &:hover, &.active {
+            color: $orange;
+          }
+        }
+        span.sep {
+          float: left;
+          color: #ff9b40;
+          padding: 0 8px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
 
-div#wrapper-content div#header ul#right-menu { float: right; margin: 30px 0 0 0; }
-div#wrapper-content div#header ul#right-menu li { float: left; display: inline-block; }
-div#wrapper-content div#header ul#main-menu { float: left; margin: 30px 0 0 20px; }
-div#wrapper-content div#header ul#main-menu li { float: left; display: inline-block; }
-div#wrapper-content div#header span.sep { float: left; color: #ff9b40; padding: 0 8px; font-size: 18px; }
-div#wrapper-content div#header a { float: left; color: #000; text-decoration: none; font-size: 18px; }
-div#wrapper-content div#header a:hover, div#wrapper-content div#header a.active { color: #ff9b40; }
+
+
+
 div#wrapper-content div#content { width: 880px; padding: 0 40px; margin: 0 auto; font-family: 'Actor', sans-serif; font-size: 13px; }
 div#wrapper-content div#content div.content-left { width: 520px; height: 287px; margin: -20px 0 0 60px; padding: 60px 35px 30px 35px; float: left; }
 div#wrapper-content div#content div.content-left h2 { font-size: 18px; color: #ff9b40; font-family: 'Indie Flower', cursive; }
