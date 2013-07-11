@@ -1,6 +1,4 @@
-class User < ActiveRecord::Base
-
-  validates :username, :uniqueness => true
+class User < ActiveRecord::Base  
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable, :omniauthable, :confirmable
@@ -12,15 +10,15 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me, :user_role
-  attr_accessible :login
+  attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me
   attr_accessible :type
 
+  validates :username, uniqueness: true
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
     else
       where(conditions).first
     end
