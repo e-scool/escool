@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  #before_filter :session_inspect
-
   def child_or_classroom_assigned?
     current_user.has_child_or_classroom_assigned?
   end

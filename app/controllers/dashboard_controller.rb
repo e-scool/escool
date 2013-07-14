@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
 
   before_filter :authenticate_user!
-  g
   before_filter :set_current_data, :only => [:index, :docents], :unless => :child_or_classroom_assigned?
   before_filter :get_data, :only => [:index]
 
