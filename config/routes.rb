@@ -1,7 +1,7 @@
 Escool::Application.routes.draw do
 
   root :to => "website#index"
-  match 'contact' => 'website#contact', :as => 'contact', :via => :post
+  match 'contact' => 'website#contact', :as => 'contact', :via => :get
 
   ActiveAdmin.routes(self)
 
