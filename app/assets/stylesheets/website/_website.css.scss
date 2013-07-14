@@ -1,5 +1,3 @@
-@import "bootstrap_and_overrides";
-
 body {
   padding-top: 40px;
   background: url("/assets/website/bg.png") repeat;
@@ -56,7 +54,8 @@ body {
     padding: 0 40px;
     margin: 0 auto;
     font-size: 13px;
-    font-family: 'Actor', sans-serif;    
+    font-family: 'Actor', sans-serif;
+    color: #000;
     .content-left {
       float: left;
       width: 520px;
@@ -65,12 +64,18 @@ body {
       padding: 60px 35px 30px 35px;
       h2 {
         color: $orange;
-        font-size: 18px;        
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: normal;
+        margin: 0;        
         font-family: 'Indie Flower', cursive;
       }
       p {
         line-height: 125%;
         margin: 15px 0 0 0;
+        span.orange {
+          color: $orange;
+        }
       }
       a {
         color: $orange;
@@ -100,11 +105,15 @@ body {
             label {
               float: left;
               width: 70px;
-              margin: 7px 0 0 0; 
+              margin: 6px 0 0 0;
+              font-size: 13px;
+              line-height: 13px; 
             }
             input[type=text], textarea {
               float: right;
               padding: 6px 8px;
+              font-size: 13px;
+              line-height: 14px;
               border: 1px solid $orange;
               @include border-radius(15px);
               &:focus {
@@ -113,6 +122,7 @@ body {
             }
             input[type=text] {
               width: 200px;
+              height: 13px;
               margin: 0 100px 0 0;
             }
             textarea {
@@ -123,10 +133,11 @@ body {
             input[type=submit]{
               float: right;
               margin: 0;
-              padding: 5px 16px;
+              padding: 8px 14px;
               color: #fff;
               background: $orange;
-              font-size: 13px;              
+              font-size: 13px;
+              line-height: 13px;
               border: none;
               cursor: pointer;
               @include border-radius(15px);
@@ -147,6 +158,7 @@ body {
         font-family: 'Indie Flower', cursive;
         p {
           font-size: 18px;
+          margin: 0;
         }
         a {
           float: left;
@@ -179,6 +191,8 @@ body {
       font-family: 'Indie Flower', cursive;
       font-size: 14px;
       p {
+        margin: 0;
+        line-height: 14px;
         text-align: center;
       }
     }

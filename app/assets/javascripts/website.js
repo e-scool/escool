@@ -44,8 +44,8 @@ $(document).ready(function() {
       var title = "¡Mensaje enviado!";
       var text = "Muchas gracias por contactar con nosotros, en breve nos pondremos en contacto contigo";
     } else {
-      var title = "No se ha enviado el mensaje...";
-      var text = "Lo sentimos, tu mensaje no se ha podido enviar.<br />Por favor, revisa los campos e inténtalo de nuevo.";
+      var title = "Oops! No se ha enviado el mensaje...";
+      var text = "Algo no ha salido bien... Por favor, revisa los campos e inténtalo de nuevo.";
     }
     var close_button_text = "Cerrar";
     $('body').append(
