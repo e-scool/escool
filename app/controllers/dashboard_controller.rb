@@ -1,11 +1,11 @@
 class DashboardController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :set_current_data, :only => [:index, :docents], :unless => :child_or_classroom_assigned?
-  before_filter :get_data, :only => [:index]
+  before_filter :set_current_data, only: [:index, :docents], unless: :child_or_classroom_assigned?
+  before_filter :get_data, only: [:index]
 
-  before_filter :redirect_if_current_user_is_parent?, :only => [:update_current_classroom]
-  before_filter :redirect_if_current_user_is_not_parent?, :only => [:update_current_child]
+  before_filter :redirect_if_current_user_is_parent?, only: [:update_current_classroom]
+  before_filter :redirect_if_current_user_is_not_parent?, only: [:update_current_child]
 
   def index
     if current_user.parent?
