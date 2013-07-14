@@ -1,6 +1,6 @@
 class WebsiteController < ApplicationController
 
-  before_filter :set_website_locale
+  before_filter :set_website_locale, :only => [:index]
 
   def index
     @support_message = SupportMessage.new
@@ -9,33 +9,11 @@ class WebsiteController < ApplicationController
 
   def contact
     @support_message = SupportMessage.new(params[:support_message])
-
     if @support_message.valid?
       WebsiteMailer.contact_email(@support_message).deliver
-      puts "*****************"
-      puts "*****************"
-      puts "*****************"
-      puts "valid"
-      puts "*****************"
-      puts "*****************"
-      puts "*****************"
-      #
-      # TODO: Ha de responder con Json!!
-      #
-      redirect_to(root_path, :notice => "Message was successfully sent.")
+      @message_sent = true
     else
-      flash.now.alert = "Please fill all fields."
-      puts "*****************"
-      puts "*****************"
-      puts "*****************"
-      puts "No valid"
-      puts "*****************"
-      puts "*****************"
-      puts "*****************"
-      #
-      # TODO: Ha de responder con Json!!
-      #
-      render :index
+      @message_sent = false    
     end
   end
 end

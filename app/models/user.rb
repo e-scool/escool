@@ -26,6 +26,19 @@ class User < ActiveRecord::Base
   ### def self.find_for_database_authentication(warden_conditions)
   ### end
 
+  # Public: Check if is User has current_child (if is Parent) or current_child (if is Teacher or SchoolManager)
+  def has_child_or_classroom_assigned?
+    if self.parent?
+      self.current_child_id?
+    elsif self.teacher? || self.school_manager?
+      self.current_classroom_id?
+    else
+      ##
+      ## Expection => No Parent/Teacher/SchoolManager User
+      ##
+    end
+  end
+  
   def parent?
     self.is_a?(Parent)
   end

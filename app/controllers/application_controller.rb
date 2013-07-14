@@ -3,18 +3,26 @@ class ApplicationController < ActionController::Base
 
   #before_filter :session_inspect
 
-  private
+  def child_or_classroom_assigned?
+    current_user.has_child_or_classroom_assigned?
+  end
 
-  #def session_inspect
-  #  puts '***********************'
-  #  puts '***********************'
-  #  puts session.inspect
-  #  puts '***********************'
-  #  puts '***********************'
-  #end
+  private
 
   def set_website_locale
     I18n.locale = params[:lang] if %w(es ca).include?(params[:lang])
+  end
+
+  def set_current_data
+    if current_user.parent?
+      current_user.add_current_child
+    elsif current_user.teacher? || current_user.school_manager?
+      current_user.add_current_classroom
+    else
+      ##
+      ## Expection => No Parent/Teacher/SchoolManager User
+      ##
+    end
   end
 
   def get_data
@@ -23,14 +31,10 @@ class ApplicationController < ActionController::Base
       @child = current_user.current_child
     elsif current_user.teacher? || current_user.school_manager?
       @classroom = current_user.current_classroom
-    end
-  end
-
-  def set_current_data
-    if current_user.parent?
-      current_user.add_current_child unless current_user.current_child
-    elsif current_user.teacher? || current_user.school_manager?
-      current_user.add_current_classroom unless current_user.current_classroom
+    else
+      ##
+      ## Expection => No Parent/Teacher/SchoolManager User
+      ##
     end
   end
 
@@ -51,7 +55,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    #new_user_session_path
     login_path
   end
 end
