@@ -43,15 +43,15 @@ module ApplicationHelper
   def sidebar_menu(classroom)
     menu_list = "<ul class='nav nav-list sidemenu'>"
     menu_list << "<li#{active_path?(dashboard_path)}><a href='#{dashboard_url}'><img src='#{asset_path('icons/dashboard-mini.png')}' />#{t ('sections.dashboard')}</a></li>"
-    menu_list << "<li#{active_path?(calendar_path)}><a href='#{calendar_url}'><img src='#{asset_path('icons/calendar-mini.png')}' />#{t ('sections.calendar')}</a></li>"
+    #menu_list << "<li#{active_path?(calendar_path)}><a href='#{calendar_url}'><img src='#{asset_path('icons/calendar-mini.png')}' />#{t ('sections.calendar')}</a></li>"
 
-    optional_sections = ['daily_activities', 'lunch_reports', 'materials', 'communications']
+    optional_sections = ['materials', 'communications'] # 'daily_activities', 'lunch_reports'
 
     optional_sections.each do |i|
       menu_list << "<li#{active_path?(eval(i + '_path'))}><a href='#{eval(i + '_url')}'><img src='#{asset_path('icons/' + i + '-mini.png')}' />#{t ('sections.' + i)}</a></li>" if eval("classroom.classroom_type.#{i}?")
     end
 
-    menu_list << "<li#{active_path?(teachers_path)}><a href='#{teachers_url}'><img src='#{asset_path('icons/docents-mini.png')}' />#{t ('sections.docents')}</a></li>"
+    #menu_list << "<li#{active_path?(teachers_path)}><a href='#{teachers_url}'><img src='#{asset_path('icons/docents-mini.png')}' />#{t ('sections.docents')}</a></li>"
     menu_list << "</ul>"
 
     menu_list.html_safe
