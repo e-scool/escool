@@ -3,12 +3,22 @@
 <head>
   <title>e-Scool</title>
   <link rel="shortcut icon" href="/favicon.ico" />
+
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <link rel="stylesheet" href="/assets/ie.css" type="text/css" media="screen, projection" />
   <![endif]-->
+
   <link href='http://fonts.googleapis.com/css?family=Actor|Indie+Flower' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application-website", :media => "all" %>
+
+  <%= javascript_include_tag 'translations' %>
+  <script type="text/javascript" charset="utf-8">
+    I18n.defaultLocale = "<%= I18n.default_locale %>";
+    I18n.locale = "<%= I18n.locale %>";
+    I18n.fallbacks = true;
+  </script>
+
   <%= javascript_include_tag "website" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
