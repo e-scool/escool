@@ -15,3 +15,12 @@
 //= require bootstrap-alert
 //= require bootstrap-modal
 //= require bootstrap-dropdown
+//= require bootstrap-datepicker
+
+$(document).ready(function() {
+
+  // Initialize bootstrap-datepickers
+  $('#dp-communication').datepicker();
+  $('#dp-material').datepicker();
+
+});
