@@ -35,6 +35,9 @@ module Escool
     config.i18n.default_locale = :ca
     config.i18n.fallbacks = true
 
+    # Provisional locale setting
+    config.i18n.locale = :ca
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
