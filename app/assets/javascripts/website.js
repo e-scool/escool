@@ -16,6 +16,16 @@
 //= require bootstrap-modal
 
 $(document).ready(function() {
+
+  // Hack to disable submit buttons when user clicks
+  // $('form').submit(function(){
+  //   if (!$(this).hasClass('nodis')) {
+  //     $(this).find("input[type='submit']").attr('disabled', 'disabled');
+  //     $(this).find("input[type='submit']").click(function(){ return false; });
+  //   }
+  // });
+
+  // Main menu behaviour
   $('ul#main-menu li a').click(function(){
     prev = $(this).parent().parent().find("a.active").attr("rel");
     next = $(this).attr("rel");
@@ -27,6 +37,7 @@ $(document).ready(function() {
     return false;
   });
 
+  // Contact form functionality
   $('#contact-form').submit(function() {  
     var valuesToSubmit = $(this).serialize();
     $.ajax({
@@ -39,23 +50,17 @@ $(document).ready(function() {
     return false; // prevents normal behaviour
   });
 
-  function showContactResponseModal(sent) {
-    if (sent == true) {
-      var title = "¡Mensaje enviado!";
-      var text = "Muchas gracias por contactar con nosotros, en breve nos pondremos en contacto contigo";
-    } else {
-      var title = "Oops! No se ha enviado el mensaje...";
-      var text = "Algo no ha salido bien... Por favor, revisa los campos e inténtalo de nuevo.";
-    }
+  function showContactResponseModal(response) {
+    $('#myModal').remove();
     var close_button_text = "Cerrar";
     $('body').append(
       "<div id='myModal' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
         "<div class='modal-header'>" +
           "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>" +
-          "<h3 id='myModalLabel'>" + title + "</h3>" +
+          "<h3 id='myModalLabel'>" + response['title'] + "</h3>" +
         "</div>" +
         "<div class='modal-body'>" +
-          "<p>" + text + "</p>" +
+          "<p>" + response['text'] + "</p>" +
         "</div>" +
         "<div class='modal-footer'>" +
           "<button class='btn btn-primary' data-dismiss='modal' aria-hidden='true'>" + close_button_text + "</button>" +
@@ -63,4 +68,5 @@ $(document).ready(function() {
       "</div>");
     $('#myModal').modal('show');
   }
+
 });
