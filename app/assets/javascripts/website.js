@@ -52,7 +52,6 @@ $(document).ready(function() {
 
   function showContactResponseModal(response) {
     $('#myModal').remove();
-    var close_button_text = "Cerrar";
     $('body').append(
       "<div id='myModal' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
         "<div class='modal-header'>" +
@@ -63,7 +62,7 @@ $(document).ready(function() {
           "<p>" + response['text'] + "</p>" +
         "</div>" +
         "<div class='modal-footer'>" +
-          "<button class='btn btn-primary' data-dismiss='modal' aria-hidden='true'>" + close_button_text + "</button>" +
+          "<button class='btn btn-primary' data-dismiss='modal' aria-hidden='true'>" + I18n.t('close') + "</button>" +
         "</div>" +
       "</div>");
     $('#myModal').modal('show');

@@ -24,9 +24,6 @@ es:
       no_sent:
         title: "Oops! No se ha enviado el mensaje..."
         text: "Algo no ha salido bien... Por favor, revisa el formulario e inténtalo de nuevo."
-
-  login: "Inicia sessión"
-
   sections:
     dashboard: "Inicio"
     calendar: "Calendario"
@@ -35,3 +32,5 @@ es:
     materials: "Material"
     communications: "Comunicaciones"
     teacher: "Docentes"
+  login: "Inicia sessión"
+  close: "Cerrar"

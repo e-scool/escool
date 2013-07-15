@@ -31,8 +31,9 @@ module Escool
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[File.join(Rails.root, 'config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :ca
-    config.i18n.locale = :ca
+    config.i18n.fallbacks = true
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -56,14 +57,17 @@ module Escool
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.initialize_on_precompile = false
-    config.assets.precompile += %w( application-app.css application-website.css active_admin.css active_admin.js ) # active_admin/print.css
+    config.assets.precompile += [
+      'application-app.css',
+      'application-website.css',
+      'active_admin.css',
+      'active_admin.js',
+      'translations.js'
+    ]
+    # active_admin/print.css
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    # Quite assets (false to show on log)
-    # config.quiet_assets = false
 
     config.to_prepare do
       Devise::SessionsController.layout "not_logged"

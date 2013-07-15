@@ -24,9 +24,6 @@ ca:
       no_sent:
         title: "Oops! No s'ha enviat el missatge..."
         text: "Alguna cosa no ha sortit bé... Si us plau, revisa el formulari i torna a provar."
-
-  login: "Inicia sessió"
-
   sections:
     dashboard: "Inici"
     calendar: "Calendari"
@@ -35,3 +32,5 @@ ca:
     materials: "Material"
     communications: "Comunicacions"
     teacher: "Docents"
+  login: "Iniciar sessió"
+  close: "Tancar"
