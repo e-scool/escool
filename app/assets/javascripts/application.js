@@ -20,7 +20,10 @@
 $(document).ready(function() {
 
   // Initialize bootstrap-datepickers
-  $('#dp-communication').datepicker();
-  $('#dp-material').datepicker();
+  $('#dp-communication, #dp-material').datepicker({
+    language: I18n.locale,
+    autoclose: true,
+    weekStart: 1
+  });
 
 });
