@@ -1,0 +1,65 @@
+<div class="page-header">
+  <h1><img src="<%= asset_path('icons/materials.png') %>" />Material <small><%= header_subtitle %></small></h1>
+</div>
+
+<% if current_user.teacher? %>
+  <div class="action-buttons">
+    <button class="btn add" type="button"><i class="icon-plus"></i> Afegir material</button>
+  </div>
+  <div class="add-form rounded-corners-5">
+    <form>
+      <div class="form-inputs">
+        <div class="control-group">
+          <label class="control-label" for="assignatura">Assignatura</label>
+          <div class="controls">
+            <select id="assignatura">
+              <% current_user.current_classroom.subjects.each do |s| %>
+              <option value="<%= s.id %>"><%= s.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="alumnes">Alumnes</label>
+          <div class="controls">
+            <select id="alumnes" multiple="multiple">
+              <% current_user.current_classroom.children.each do |c| %>
+              <option value="<%= c.id %>"><%= c.name %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="queNecessitem">Què necessitem?</label>
+          <div class="controls">
+            <input type="text" id="queNecessitem" class="input-block-level" placeholder="Llista de materials...">
+          </div>
+        </div>
+        <div class="control-group input-append">
+          <label class="control-label" for="quan">Data</label>
+          <div class="controls">
+            <input type="text" id="quan" data-date-format="dd/mm/yyyy" bs-datepicker  placeholder="dd/mm/aaaa">
+            <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-primary">Afegeix</button>
+        <button type="button" class="btn cancel">Cancel·la</button>
+      </div>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
+
+<div class="materials">
+  <div class="material">
+    <span class="date">Dijous 10 d'Agost</span>
+    <div class="resume rounded-corners-5">
+      <p><span class="subject rounded-corners-5">Mates</span>Calculadora, regle y compàs</p>
+    </div>
+    <% if current_user.teacher? %>
+    <button class="btn btn-small cancel delete" rel="tooltip" data-original-title="Eliminar"><i class="icon-trash"></i></button>
+    <% end %>
+  </div>
+</div>

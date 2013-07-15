@@ -1,7 +1,13 @@
 Escool::Application.routes.draw do
 
   root :to => "website#index"
+
   match 'contact' => 'website#contact', :as => 'contact', :via => :get
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :materials, except: [:new, :edit]
+    resources :communications, except: [:new, :edit]
+  end
 
   ActiveAdmin.routes(self)
 
@@ -22,6 +28,9 @@ Escool::Application.routes.draw do
   match '/update-classroom/:classroom_id' => "dashboard#update_current_classroom", :as => "update_current_classroom"
 
   get "/dashboard" => "dashboard#index"
+
+  resources :materials, only: [:index]
+  resources :communications, only: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
