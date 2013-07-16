@@ -26,22 +26,33 @@ classroom5 = school.classrooms.create(name: '1r B', classroom_type: type3)
 classroom6 = school.classrooms.create(name: '2n A', classroom_type: type3)
 classroom7 = school.classrooms.create(name: '2n B', classroom_type: type3)
 
-puts '=> Creating Teachers'
-# Create Teachers
-for i in 1..20
-	random_classrooms = school.classrooms.sample(rand(1..7))
-	school.teachers.create!(name: "Profe #{i}", username: "profe#{i}", email: "profe#{i}@profes.com", password: password, password_confirmation: password, classrooms: random_classrooms)
-end
-
 puts '=> Creating Subjects'
 # Create Subjects
-school.classrooms.each do |classroom|
-  for i in 1..5
-    #
-    # TODO!
-    #
+subjects = ['Mates', 'Ciències', 'Anglès', 'Català', 'Castellà']
+school.classrooms.each do |classroom|  
+  classroom.teachers.each_with_index do |teacher, index|
+    classroom.subjects.create!(name: "Assignatura #{index}", teacher: teacher)
   end
 end
+
+
+
+puts '=> Creating Teachers'
+# Create Teachers
+for i in 1..10
+  random_classrooms = school.classrooms.sample(rand(1..7))
+  school.teachers.create!(name: "Profe #{i}", username: "profe#{i}", email: "profe#{i}@profes.com", password: password, password_confirmation: password, classrooms: random_classrooms)
+end
+
+
+
+
+
+
+
+
+
+
 
 puts '=> Creating Parents'
 # Create Parents
