@@ -2,7 +2,7 @@
 
 password = 'cool2013es'
 
-puts '=> Creating AdminUser (:email => "admin@e-scool.com", :password => "cool2013es")'
+puts "=> Creating AdminUser (email: 'admin@e-scool.com', password: 'cool2013es')"
 # Create AdminUser
 AdminUser.create!(email: 'admin@e-scool.com', password: password, password_confirmation: password)
 
@@ -26,33 +26,30 @@ classroom5 = school.classrooms.create(name: '1r B', classroom_type: type3)
 classroom6 = school.classrooms.create(name: '2n A', classroom_type: type3)
 classroom7 = school.classrooms.create(name: '2n B', classroom_type: type3)
 
-puts '=> Creating Subjects'
-# Create Subjects
+puts '=> Creating Teachers & Subjects'
+# Create Teachers & Subjects
 subjects = ['Mates', 'Ciències', 'Anglès', 'Català', 'Castellà']
-school.classrooms.each do |classroom|  
-  classroom.teachers.each_with_index do |teacher, index|
-    classroom.subjects.create!(name: "Assignatura #{index}", teacher: teacher)
+teacher_count = 1
+assigned_teachers = []
+school.classrooms.each do |classroom|
+  subjects.each do |subject|
+    teacher = school.teachers.find_or_create_by_username("profe#{teacher_count}") do |t|
+      t.name = "Profe #{teacher_count}"
+      t.email = "profe#{teacher_count}@profes.com"
+      t.password = password
+      t.password_confirmation = password
+    end
+    classroom.subjects.create!(name: subject, teacher: teacher)
+    teacher.update_attributes(classrooms: teacher.classrooms << classroom)
+    if assigned_teachers.count < 10 # School will have 10 Teachers
+      assigned_teachers << teacher
+      teacher_count += 1
+    else
+      assigned_teachers = []
+      teacher_count = 1
+    end
   end
 end
-
-
-
-puts '=> Creating Teachers'
-# Create Teachers
-for i in 1..10
-  random_classrooms = school.classrooms.sample(rand(1..7))
-  school.teachers.create!(name: "Profe #{i}", username: "profe#{i}", email: "profe#{i}@profes.com", password: password, password_confirmation: password, classrooms: random_classrooms)
-end
-
-
-
-
-
-
-
-
-
-
 
 puts '=> Creating Parents'
 # Create Parents
