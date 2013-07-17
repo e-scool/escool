@@ -65,8 +65,10 @@ module Escool
       'application-app.css',
       'application-website.css',
       'active_admin.css',
+      'application.js',
+      'website.js',
+      'translations.js',
       'active_admin.js',
-      'translations.js'
     ]
     # active_admin/print.css
 
