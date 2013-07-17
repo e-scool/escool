@@ -66,7 +66,7 @@ Escool::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic") do |u, p|
-    [u, p] == ['e-scool', 'cool2013es']
+  config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Restricted") do |u, p|
+    u == 'e-scool' && p == 'cool2013es'
   end
 end
