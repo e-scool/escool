@@ -21,6 +21,25 @@ module Api
       end
     end
 
+    def test
+      classroom = Classroom.first
+      communications_hash = {communications: []}
+
+      5.times do |c|
+        c = classroom.communications.new
+        c.id = '234'
+        c.classroom = classroom
+        c.children = classroom.children
+        c.subject = Subject.first
+        c.title = 'Jornada de portes obertes'
+        c.body = 'El proper dimarts farem la jornada de portes obertes'
+        c.date = Time.now
+        communications_hash[:communications] << c
+      end
+
+      respond_with communications_hash
+    end
+
     def show
       respond_with @classroom.communications.find(params[:id])
     end
