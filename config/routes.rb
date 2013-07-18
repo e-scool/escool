@@ -7,7 +7,8 @@ Escool::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     resources :materials, only: [:index, :show, :create, :update, :destroy]
     resources :communications, only: [:index, :show, :create, :update, :destroy]
-    match '/communications-test' => 'communications#test'
+    get '/communications-test' => 'communications#test_index'
+    get '/communications-test/:id' => 'communications#test_show'
   end
 
   ActiveAdmin.routes(self)

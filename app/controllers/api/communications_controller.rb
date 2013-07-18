@@ -21,7 +21,26 @@ module Api
       end
     end
 
-    def test
+    def show
+      respond_with @classroom.communications.find(params[:id])
+    end
+
+    def create
+      respond_with @classroom.communications.create(params[:communication])
+    end
+
+    def update
+      respond_with @classroom.communications.update(params[:id], params[:communication])
+    end
+
+    def destroy
+      respond_with @classroom.communications.destroy(params[:id])
+    end
+
+    #
+    # Only for testing mobile client. TODO: Remove
+    #
+    def test_index
       classroom = Classroom.first
       communications_hash = {communications: []}
 
@@ -40,20 +59,23 @@ module Api
       respond_with communications_hash
     end
 
-    def show
-      respond_with @classroom.communications.find(params[:id])
+    #
+    # Only for testing mobile client. TODO: Remove
+    #
+    def test_show
+      classroom = Classroom.first
+
+      c = classroom.communications.new
+      c.id = params[:id]
+      c.classroom = classroom
+      c.children = classroom.children
+      c.subject = Subject.first
+      c.title = 'Jornada de portes obertes'
+      c.body = 'El proper dimarts farem la jornada de portes obertes'
+      c.date = Time.now
+
+      respond_with c
     end
 
-    def create
-      respond_with @classroom.communications.create(params[:communication])
-    end
-
-    def update
-      respond_with @classroom.communications.update(params[:id], params[:communication])
-    end
-
-    def destroy
-      respond_with @classroom.communications.destroy(params[:id])
-    end
   end
 end
