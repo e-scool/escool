@@ -36,46 +36,5 @@ module Api
     def destroy
       respond_with @classroom.communications.destroy(params[:id])
     end
-
-    #
-    # Only for testing mobile client. TODO: Remove
-    #
-    def test_index
-      classroom = Classroom.first
-      communications_hash = {communications: []}
-
-      5.times do |c|
-        c = classroom.communications.new
-        c.id = '234'
-        c.classroom = classroom
-        c.children = classroom.children
-        c.subject = Subject.first
-        c.title = 'Jornada de portes obertes'
-        c.body = 'El proper dimarts farem la jornada de portes obertes'
-        c.date = Time.now
-        communications_hash[:communications] << c
-      end
-
-      respond_with communications_hash
-    end
-
-    #
-    # Only for testing mobile client. TODO: Remove
-    #
-    def test_show
-      classroom = Classroom.first
-
-      c = classroom.communications.new
-      c.id = params[:id]
-      c.classroom = classroom
-      c.children = classroom.children
-      c.subject = Subject.first
-      c.title = 'Jornada de portes obertes'
-      c.body = 'El proper dimarts farem la jornada de portes obertes'
-      c.date = Time.now
-
-      respond_with c
-    end
-
   end
 end
