@@ -5,8 +5,10 @@ Escool::Application.routes.draw do
   match 'contact' => 'website#contact', :as => 'contact', :via => :get
 
   namespace :api, defaults: {format: 'json'} do
-    resources :materials, except: [:new, :edit]
-    resources :communications, except: [:new, :edit]
+    resources :materials, only: [:index, :show, :create, :update, :destroy]
+    resources :communications, only: [:index, :show, :create, :update, :destroy]
+    get '/test/communications' => 'test#communications_index'
+    get '/test/communications/:id' => 'test#communications_show'
   end
 
   ActiveAdmin.routes(self)
