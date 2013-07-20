@@ -1,0 +1,19 @@
+#dashboard {
+  .widget {
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 15px;
+    background: #FFDFCC;
+    border: 1px solid #FFC9A5;
+    span.title {
+      font-size: 20px;
+      color: #FF730F;
+      img {
+        margin: -6px 10px 0 0;
+      }
+    }
+    p.no-items {
+      margin: 10px 0 0 0;
+    }
+  }
+}
