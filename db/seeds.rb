@@ -29,24 +29,24 @@ classroom7 = school.classrooms.create(name: '2n B', classroom_type: type3)
 puts '=> Creating Teachers & Subjects'
 # Create Teachers & Subjects
 subjects = ['Mates', 'Ciències', 'Anglès', 'Català', 'Castellà']
-teacher_count = 1
-assigned_teachers = []
+teacher_id = rand(1..10)
+assigned_teachers_ids = []
 school.classrooms.each do |classroom|
   subjects.each do |subject|
-    teacher = school.teachers.find_or_create_by_username("profe#{teacher_count}") do |t|
-      t.name = "Profe #{teacher_count}"
-      t.email = "profe#{teacher_count}@profes.com"
+    teacher = school.teachers.find_or_create_by_username("profe#{teacher_id}") do |t|
+      t.name = "Profe #{teacher_id}"
+      t.email = "profe#{teacher_id}@profes.com"
       t.password = password
       t.password_confirmation = password
     end
     classroom.subjects.create!(name: subject, teacher: teacher)
     teacher.update_attributes(classrooms: teacher.classrooms << classroom)
-    if assigned_teachers.count < 10 # School will have 10 Teachers
-      assigned_teachers << teacher
-      teacher_count += 1
+    assigned_teachers_ids << teacher_id
+    if assigned_teachers_ids.count < 10
+      teacher_id = ([*1..10] - assigned_teachers_ids).sample
     else
       assigned_teachers = []
-      teacher_count = 1
+      teacher_id = rand(1..10)
     end
   end
 end
