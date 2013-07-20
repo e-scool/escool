@@ -33,8 +33,6 @@ logo-medium.png: logo-medium-8ff24bd7d90533d62ed4efe357178d21.png
 logo-medium/index.png: logo-medium-8ff24bd7d90533d62ed4efe357178d21.png
 logo.png: logo-0746aeb38b67f1f623aaedd0cdd49ff6.png
 logo/index.png: logo-0746aeb38b67f1f623aaedd0cdd49ff6.png
-rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 website/bg-box-contacte.png: website/bg-box-contacte-724f76de17cf1e8d379cca44d847a38e.png
 website/bg-box-contacte/index.png: website/bg-box-contacte-724f76de17cf1e8d379cca44d847a38e.png
 website/bg-box-objectius.png: website/bg-box-objectius-bdccb650e5a866a7f713ad792b10ce28.png
@@ -55,14 +53,14 @@ active_admin.js: active_admin-a7269eed40374198bc027607dd335070.js
 active_admin/index.js: active_admin-a7269eed40374198bc027607dd335070.js
 application.js: application-e8319e9fd75f9b71e32ba4670d114600.js
 application/index.js: application-e8319e9fd75f9b71e32ba4670d114600.js
-translations.js: translations-300753228120ce016139a11d73b8e7ac.js
-translations/index.js: translations-300753228120ce016139a11d73b8e7ac.js
+translations.js: translations-901619e06e8aecf8c324d24cd2c0621b.js
+translations/index.js: translations-901619e06e8aecf8c324d24cd2c0621b.js
 website.js: website-f4ba47d2363925630432e3b5fe633fa8.js
 website/index.js: website-f4ba47d2363925630432e3b5fe633fa8.js
 active_admin.css: active_admin-f6eab3903eabe26e294bb5e070593cb6.css
 active_admin/index.css: active_admin-f6eab3903eabe26e294bb5e070593cb6.css
-application-app.css: application-app-91ac625772cbf8fadc7170754b87d77f.css
-application-app/index.css: application-app-91ac625772cbf8fadc7170754b87d77f.css
+application-app.css: application-app-c041e5ac5688c303efd7ceab7051ab2f.css
+application-app/index.css: application-app-c041e5ac5688c303efd7ceab7051ab2f.css
 application-website.css: application-website-1d85f1a9b957e35cd1550a799119fd76.css
 application-website/index.css: application-website-1d85f1a9b957e35cd1550a799119fd76.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
