@@ -1,0 +1,52 @@
+<div class="add-form rounded-corners-5">
+  <form>
+    <div class="form-inputs">
+      <div class="control-group">
+        <label class="control-label" for="assignatura">Assignatura</label>
+        <div class="controls">
+          <select id="assignatura">
+            <%= current_user.classroom_subjects(current_classroom).each do |s| %>
+            <option value="<%= s.id %>"><%= s.name %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="alumnes">Alumnes</label>
+        <div class="controls">
+          <select id="alumnes" multiple="multiple">
+            <% current_user.current_classroom.children.each do |c| %>
+            <option value="<%= c.id %>"><%= c.name %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="titol">Títol</label>
+        <div class="controls">
+          <input type="text" id="titol" class="input-block-level">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="body">Text</label>
+        <div class="controls">
+          <textarea id="body" rows="5" class="input-block-level"></textarea>
+        </div>
+      </div>
+      <div class="control-group input-append">
+        <label class="control-label" for="quan">Data</label>
+        <div class="controls">
+          <div class="input-append date" id="dp-communication" data-date-format="dd-mm-yyyy">
+            <input class="span2" size="16" type="text" id="quan">
+            <button type="button" class="btn"><i class="icon-calendar"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Afegeix</button>
+      <button type="button" class="btn cancel">Cancel·la</button>
+    </div>
+  </form>
+  <div class="clearfix"></div>
+</div>
