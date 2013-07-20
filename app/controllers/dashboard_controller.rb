@@ -34,7 +34,6 @@ class DashboardController < ApplicationController
   def update_current_classroom
     if current_user.classrooms.select(:id).map{|i| i.id}.include?(params[:classroom_id].to_i)
       current_user.update_attribute(:current_classroom, Classroom.find(params[:classroom_id]))
-      binding.pry
     end
     redirect_to dashboard_path
   end
