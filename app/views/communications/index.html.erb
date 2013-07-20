@@ -12,7 +12,7 @@
           <label class="control-label" for="assignatura">Assignatura</label>
           <div class="controls">
             <select id="assignatura">
-              <%= current_user.current_classroom.subjects.each do |s| %>
+              <%= current_user.classroom_subjects(current_classroom).each do |s| %>
               <option value="<%= s.id %>"><%= s.name %></option>
               <% end %>
             </select>
