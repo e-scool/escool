@@ -8,7 +8,7 @@ module Api
     #
     def communications_index
       classroom = Classroom.first
-      communications_hash = {communications: []}
+      communications = []
 
       5.times do |c|
         c = classroom.communications.new
@@ -19,10 +19,10 @@ module Api
         c.title = 'Jornada de portes obertes'
         c.body = 'El proper dimarts farem la jornada de portes obertes'
         c.date = Time.now
-        communications_hash[:communications] << c
+        communications << c
       end
 
-      respond_with communications_hash
+      respond_with communications
     end
 
     #
