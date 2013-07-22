@@ -5,6 +5,7 @@ Escool::Application.routes.draw do
   match 'contact' => 'website#contact', :as => 'contact', :via => :get
 
   namespace :api, defaults: {format: 'json'} do
+    resources :sessions, only: [:create, :destroy]
     resources :materials, only: [:index, :show, :create, :update, :destroy]
     resources :communications, only: [:index, :show, :create, :update, :destroy]
     get '/test/communications' => 'test#communications_index'
