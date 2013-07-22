@@ -44,6 +44,10 @@ class ApplicationController < ActionController::Base
     redirect_to dashboard_path unless current_user.parent?
   end
 
+  def redirect_if_current_user_is_teacher?
+    redirect_to dashboard_path if current_user.teacher?
+  end
+
   def redirect_if_current_user_is_not_teacher?
     redirect_to dashboard_path unless current_user.teacher?
   end
