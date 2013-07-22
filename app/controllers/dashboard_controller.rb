@@ -21,7 +21,6 @@ class DashboardController < ApplicationController
   end
 
   def docents
-
   end
 
   def update_current_child
@@ -39,4 +38,3 @@ class DashboardController < ApplicationController
   end
 
 end
-

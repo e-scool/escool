@@ -1,4 +1,5 @@
 class Api::MaterialsController < ApplicationController
+
   class Material < ::Material
     def as_json(options = {})
       super
@@ -34,4 +35,5 @@ class Api::MaterialsController < ApplicationController
   def destroy
     respond_with current_classroom.materials.destroy(params[:id])
   end
+
 end

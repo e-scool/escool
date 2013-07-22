@@ -1,8 +1,8 @@
 class WebsiteController < ApplicationController
 
-  before_filter :set_website_locale, only: [:index]
-
   respond_to :json, only: [:contact]
+
+  before_filter :set_website_locale, only: [:index]
 
   def index
     @support_message = SupportMessage.new
@@ -24,4 +24,5 @@ class WebsiteController < ApplicationController
 
     respond_with response.to_json
   end
+
 end

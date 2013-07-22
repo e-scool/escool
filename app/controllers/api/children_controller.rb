@@ -11,4 +11,5 @@ class Api::ChildrenController < ApplicationController
       render status: 404, json: {message: 'Invalid token.'}
     end
   end
+
 end

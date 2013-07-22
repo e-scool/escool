@@ -14,9 +14,9 @@ class Classroom < ActiveRecord::Base
 
   scope :by_name, order('name::bytea')
 
-
   def parents
     ids = self.children.map { |i| i.parent_id }
     self.school.parents.where(:id => ids)
   end
+
 end

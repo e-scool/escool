@@ -8,4 +8,5 @@ class School < ActiveRecord::Base
   has_many :children, :dependent => :destroy
 
   attr_accessible :name
+
 end

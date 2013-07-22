@@ -17,7 +17,6 @@ class Child < ActiveRecord::Base
 
   after_create :add_current_child_to_parent
 
-
   def add_current_child_to_parent
     parent = self.parent
     parent.current_child_id = self.id

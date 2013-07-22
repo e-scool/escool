@@ -6,5 +6,7 @@ class LunchReport < ActiveRecord::Base
 
   belongs_to :classroom		
   belongs_to :child
+
   attr_accessible :date, :status, :classroom_id, :child_id
+
 end

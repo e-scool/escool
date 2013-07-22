@@ -1,4 +1,5 @@
 class Api::CommunicationsController < ApplicationController
+
   class Communication < ::Communication
     def as_json(options = {})
       super
@@ -34,4 +35,5 @@ class Api::CommunicationsController < ApplicationController
   def destroy
     respond_with current_classroom.communications.destroy(params[:id])
   end
+
 end

@@ -1,4 +1,5 @@
 class Api::SessionsController < ApplicationController
+
   skip_before_filter :verify_authenticity_token
 
   respond_to :json
@@ -41,4 +42,5 @@ class Api::SessionsController < ApplicationController
       render status: 200, json: {token: params[:id]}
     end
   end
+
 end
