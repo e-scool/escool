@@ -1,10 +1,5 @@
 module Api
   class ChildrenController < ApplicationController
-    class Child < ::Child
-      def as_json(options = {})
-        super
-      end
-    end
 
     respond_to :json
 
@@ -12,7 +7,7 @@ module Api
 
     def index
       if current_user.parent?
-        respond_with current_user.children.all, :include => :classroom
+        @children = current_user.children.all
       else
         render status: 404, json: {message: 'Invalid token.'}
       end
