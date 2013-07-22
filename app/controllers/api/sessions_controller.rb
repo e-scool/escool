@@ -28,7 +28,7 @@ module Api
         logger.info("User #{login} failed signin, password \"#{password}\" is invalid")
         render status: 401, json: {message: 'Invalid email or password.'}
       else
-        render status: 200, json: {token: @user.authentication_token}
+        render status: 200, json: {token: @user.authentication_token, user_id: @user.id}
       end
     end
  
