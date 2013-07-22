@@ -1,8 +1,32 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :current_classroom, :current_child
+
   def child_or_classroom_assigned?
     current_user.has_child_or_classroom_assigned?
+  end
+
+  def current_classroom
+    if current_user.parent?
+      current_user.current_child.classroom
+    elsif current_user.teacher? || current_user.school_manager?
+      current_user.current_classroom
+    else
+      ##
+      ## Expection => No Parent/Teacher/SchoolManager User
+      ##
+    end
+  end
+
+  def current_child
+    if current_user.parent?
+      current_user.current_child
+    else
+      ##
+      ## Expection => Only Parents have Children
+      ##
+    end
   end
 
   private
@@ -21,20 +45,7 @@ class ApplicationController < ActionController::Base
       ## Expection => No Parent/Teacher/SchoolManager User
       ##
     end
-  end
-
-  def get_data
-    if current_user.parent?
-      @classroom = current_user.current_child.classroom
-      @child = current_user.current_child
-    elsif current_user.teacher? || current_user.school_manager?
-      @classroom = current_user.current_classroom
-    else
-      ##
-      ## Expection => No Parent/Teacher/SchoolManager User
-      ##
-    end
-  end
+  end  
 
   def redirect_if_current_user_is_parent?
     redirect_to dashboard_path if current_user.parent?
