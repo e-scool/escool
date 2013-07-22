@@ -27,8 +27,9 @@ class Api::SessionsController < ApplicationController
     if not @user.valid_password?(password)
       logger.info("User #{login} failed signin, password \"#{password}\" is invalid")
       render status: 401, json: {message: 'Invalid email or password.'}
+      return
     else
-      render status: 200, json: {token: @user.authentication_token, user_id: @user.id}
+      render :create
     end
   end
 

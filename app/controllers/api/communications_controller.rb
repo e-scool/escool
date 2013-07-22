@@ -10,7 +10,7 @@ class Api::CommunicationsController < ApplicationController
 
   before_filter :authenticate_user!
   before_filter :set_current_data, unless: :child_or_classroom_assigned?
-  before_filter :redirect_if_current_user_is_not_teacher?, only: [:create, :update, :destroy]    
+  before_filter :redirect_if_current_user_is_not_teacher?, only: [:create, :update, :destroy]
 
   def index
     if current_user.parent?
