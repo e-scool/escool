@@ -14,9 +14,11 @@ class Api::CommunicationsController < ApplicationController
 
   def index
     if current_user.parent?
-      respond_with current_child.communications.all, include: :subject
+      child = current_user.children.find(params[:child_id])
+      respond_with child.communications.all, include: :subject
     else
-      respond_with current_classroom.communications.all, include: [:subject, :children]
+      classroom = current_user.classrooms.find(params[:classroom_id])
+      respond_with classroom.communications.all, include: [:subject, :children]
     end
   end
 

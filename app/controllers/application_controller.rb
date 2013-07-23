@@ -4,13 +4,29 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_classroom, :current_child
 
+  #
+  # Public: Check if current_user has current_child (if Parent) or current_classroom (if Teacher or SchoolManager)
+  #
+  #   => returns Boolean
+  #
   def child_or_classroom_assigned?
     current_user.has_child_or_classroom_assigned?
   end
 
+  #
+  # Public: Helper method to get current classroom
+  #
+  # If current_user is Parent
+  #
+  #   => returns current_child.classroom
+  #
+  # If current_user is Teacher or SchoolManager
+  #
+  #   => returns current_user.current_classroom
+  #
   def current_classroom
     if current_user.parent?
-      current_user.current_child.classroom
+      current_child.classroom
     elsif current_user.teacher? || current_user.school_manager?
       current_user.current_classroom
     else
@@ -20,6 +36,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #
+  # Public: Helper method to get current child
+  #
+  # If current_user is Parent
+  #
+  #   => returns current_user.current_child
+  #
   def current_child
     if current_user.parent?
       current_user.current_child
