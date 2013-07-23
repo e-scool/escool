@@ -9,8 +9,6 @@ Escool::Application.routes.draw do
     resources :children, only: [:index]
     resources :materials, only: [:index, :show, :create, :update, :destroy]
     resources :communications, only: [:index, :show, :create, :update, :destroy]
-    get '/test/communications' => 'test#communications_index', as: 'test_communications' 
-    get '/test/communications/:id' => 'test#communications_show', as: 'test_communication'
   end
 
   ActiveAdmin.routes(self)
