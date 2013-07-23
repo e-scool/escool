@@ -1,0 +1,1 @@
+json.partial! 'api/communications/communication', communication: @communication

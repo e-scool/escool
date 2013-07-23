@@ -1,11 +1,5 @@
 class Api::CommunicationsController < ApplicationController
 
-  class Communication < ::Communication
-    def as_json(options = {})
-      super
-    end
-  end
-
   respond_to :json
 
   before_filter :authenticate_user!
@@ -15,20 +9,20 @@ class Api::CommunicationsController < ApplicationController
   def index
     if current_user.parent?
       child = current_user.children.find(params[:child_id])
-      # respond_with child.communications.all, include: :subject
+      @communications = child.communications
     else
       classroom = current_user.classrooms.find(params[:classroom_id])
-      # respond_with classroom.communications.all, include: [:subject, :children]
+      @communications = classroom.communications
     end
   end
 
   def show
     if current_user.parent?
       child = current_user.children.find(params[:child_id])
-      # respond_with child.communications.find(params[:id])
+      @communication = child.communications.find(params[:id])
     else
       classroom = current_user.classrooms.find(params[:classroom_id])
-      # respond_with current_classroom.communications.find(params[:id])
+      @communication = classroom.communications.find(params[:id])
     end
   end
 
