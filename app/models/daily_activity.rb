@@ -7,6 +7,6 @@ class DailyActivity < ActiveRecord::Base
   belongs_to :classroom
   has_and_belongs_to_many :children, :join_table => "children_daily_activities"
 
-  attr_accessible :title, :date, :body, :classroom_id, :child_ids
+  attr_accessible :title, :date, :body
 
 end
