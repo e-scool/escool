@@ -3,35 +3,34 @@ body {
 }
 
 .not-logged-wrapper {
-    width: 90%;
-    height: 100%;
-    position: fixed;
-    padding: 0 5%;
-    overflow: scroll;
-    background: #ffebdd; /* Old browsers */
-    @include background-image(linear-gradient(top, #ffebdd, #ffcfad));
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffebdd', endColorstr='#ffcfad',GradientType=1 ); /* IE6-9 */
-    a.logo {
-      width: 140px;
-      margin: 5% auto 0 auto;
-      display: block;
+  width: 90%;
+  height: 100%;
+  position: fixed;
+  padding: 0 5%;
+  color: #ffffff;
+  overflow: scroll;
+  font-family: 'Scada', sans-serif;
+  @include single-text-shadow(#000);
+  @include background(radial-gradient(color-stops(#f9b951, $orange), center center));
+  a.logo {
+    width: 143px;
+    margin: 10% auto 0 auto;
+    display: block;
+  }
+  .not-logged-container {
+    margin: 0 auto 5% auto;
+    padding: 30px;
+    max-width: 280px;
+    .alert {
+      margin: 0 0 20px 0;
     }
-    .not-logged-container {
-      margin: 20px auto 5% auto;
-      padding: 30px;
-      max-width: 320px;
-      background: #fff;
-      @include single-box-shadow($dark_orange);
-      @include border-radius(15px);
-      h2 {
-        margin: 0 0 15px 0;
-        text-align: center;
-      }
-      .alert {
-        margin: 0 0 10px 0;
-      }
-      .form-inputs {
-        margin: 10px 0 0 0;
-      }
+    .title {
+      font-size: 18px;
     }
+    .form-inputs {
+      margin: 10px 0 0 0;
+      label { font-size: 14px; }
+      .btn { float: right; }
+    }
+  }
 }
