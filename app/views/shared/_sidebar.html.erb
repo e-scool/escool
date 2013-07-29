@@ -1,8 +1,5 @@
-<img src="<%= asset_path('logo-small.png') %>" class="logo" />
-<% if current_user.parent? %>
-  <%= render :partial => 'shared/sidebar/update_child_button' %>
-<% else # current_user.teacher? || current_user.school_manager? %>
-  <%= render :partial => 'shared/sidebar/update_classroom_button' %>
-<% end %>
+<div id="logo-section">
+  <img src="<%= asset_path('logo-small.png') %>" class="logo" />
+</div>
 
 <%= raw sidebar_menu(current_classroom) %>

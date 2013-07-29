@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>e-Scool</title>
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <head>
+    <title>e-Scool</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="ie.css" type="text/css" media="screen, projection" />
-  <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="ie.css" type="text/css" media="screen, projection" />
+    <![endif]-->
 
-  <link href='http://fonts.googleapis.com/css?family=Scada:400,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag 'application-app', :media => 'all' %>
+    <link href='http://fonts.googleapis.com/css?family=Scada:400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag 'application-app', :media => 'all' %>
 
-  <%= javascript_include_tag 'translations' %>
-  <script type="text/javascript" charset="utf-8">
-    I18n.defaultLocale = "<%= I18n.default_locale %>";
-    I18n.locale = "<%= I18n.locale %>";
-    I18n.fallbacks = true;
-  </script>
+    <%= javascript_include_tag 'translations' %>
+    <script type="text/javascript" charset="utf-8">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+      I18n.fallbacks = true;
+    </script>
 
-  <%= javascript_include_tag 'application' %>
-  <%= yield :jsheader %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :jsheader %>
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="span4">
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div id="main-wrapper">
+      <div id="sidebar-wrapper">
         <%= render :partial => 'shared/sidebar' %>
       </div>
-      <div class="span8">
-        <%= render :partial => 'layouts/messages' %>
-        <%= yield %>
+
+      <div id="content-wrapper">
+        <div id="header">
+          <%= header_title %>
+
+          <% if current_user.parent? %>
+            <%= render :partial => 'shared/sidebar/update_child_button' %>
+          <% else # current_user.teacher? || current_user.school_manager? %>
+            <%= render :partial => 'shared/sidebar/update_classroom_button' %>
+          <% end %>
+        </div>
+
+        <div id="content">
+          <%= render :partial => 'layouts/messages' %>
+          <%= yield %>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+
+  </body>
 </html>

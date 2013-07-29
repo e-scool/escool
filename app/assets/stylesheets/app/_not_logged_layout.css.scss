@@ -9,9 +9,8 @@ body {
   padding: 0 5%;
   color: #ffffff;
   overflow: scroll;
-  font-family: 'Scada', sans-serif;
   @include single-text-shadow(#000);
-  @include background(radial-gradient(color-stops(#f9b951, $orange), center center));
+  @include background(radial-gradient(color-stops($light_orange, $orange), center center));
   a.logo {
     width: 143px;
     margin: 10% auto 0 auto;
@@ -27,6 +26,7 @@ body {
     .title {
       margin: 0 0 14px 0;
       font-size: 20px;
+      font-family: 'Scada', sans-serif;
     }
     .form-inputs {
       margin: 10px 0 0 0;
@@ -34,6 +34,7 @@ body {
       label {
         font-size: 14px;
         line-height: 14px;
+        font-family: 'Scada', sans-serif;
       }
       input#user_remember_me {
         float: left;

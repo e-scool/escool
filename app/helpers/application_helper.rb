@@ -12,6 +12,10 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def header_title
+    content_tag(:p, "#{t(controller_name, scope: 'sections')} - <span class='subtitle'>#{header_subtitle}</span>".html_safe, class: "title #{controller_name}")
+  end
+
   def header_subtitle
     if current_user.teacher?
       current_user.current_classroom.name
@@ -21,7 +25,7 @@ module ApplicationHelper
   end
 
   def active?(boolean)
-    boolean ? " class=active" : ''
+    boolean ? " class='active'" : ''
   end
 
   def active_path?(path)
@@ -56,5 +60,5 @@ module ApplicationHelper
 
     menu_list.html_safe
   end
-  
+
 end
