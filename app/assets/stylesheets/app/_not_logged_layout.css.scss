@@ -25,12 +25,25 @@ body {
       margin: 0 0 20px 0;
     }
     .title {
-      font-size: 18px;
+      margin: 0 0 14px 0;
+      font-size: 20px;
     }
     .form-inputs {
       margin: 10px 0 0 0;
-      label { font-size: 14px; }
-      .btn { float: right; }
+      @include clearfix;
+      label {
+        font-size: 14px;
+        line-height: 14px;
+      }
+      input#user_remember_me {
+        float: left;
+        margin: 3px 6px 0 0;
+      }
+      .btn {
+        float: right;
+        padding: 5px 18px;
+        font-family: 'Scada', sans-serif;
+      }
     }
   }
 }
