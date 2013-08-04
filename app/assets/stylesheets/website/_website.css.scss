@@ -1,6 +1,6 @@
 body {
   padding-top: 40px;
-  background: url("/assets/website/bg.png") repeat;
+  background: image-url('bg.png') repeat;
 }
 
 #wrapper-content {
@@ -22,7 +22,7 @@ body {
     ul {
       &#right-menu {
         float: right;
-        margin: 30px 0 0 0;        
+        margin: 30px 0 0 0;
       }
       &#main-menu {
         float: left;
@@ -67,7 +67,7 @@ body {
         font-size: 18px;
         line-height: 18px;
         font-weight: normal;
-        margin: 0;        
+        margin: 0;
         font-family: 'Indie Flower', cursive;
       }
       p {
@@ -107,7 +107,7 @@ body {
               width: 70px;
               margin: 6px 0 0 0;
               font-size: 13px;
-              line-height: 13px; 
+              line-height: 13px;
             }
             input[type=text], textarea {
               float: right;
@@ -150,7 +150,7 @@ body {
       float: right;
       width: 213px;
       height: 200px;
-      margin: 30px -10px 0 0;      
+      margin: 30px -10px 0 0;
       position: relative;
       background: url("/assets/website/bg-social.png") no-repeat center center;
       #social-links {
