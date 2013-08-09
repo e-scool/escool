@@ -2,74 +2,65 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  helper_method :current_classroom, :current_child
+  helper_method :current_child,
+                :current_classroom
 
+  # Public: Check if current_user has current_child (if is a Parent) or
+  # current_classroom (if is a Teacher or SchoolManager)
   #
-  # Public: Check if current_user has current_child (if Parent) or current_classroom (if Teacher or SchoolManager)
-  #
-  #   => returns Boolean
-  #
+  # Return true/false
   def child_or_classroom_assigned?
     current_user.has_child_or_classroom_assigned?
   end
 
-  #
   # Public: Helper method to get current classroom
   #
-  # If current_user is Parent
-  #
-  #   => returns current_child.classroom
-  #
-  # If current_user is Teacher or SchoolManager
-  #
-  #   => returns current_user.current_classroom
-  #
+  # Return Classroom
   def current_classroom
-    if current_user.parent?
-      current_child.classroom
-    elsif current_user.teacher? || current_user.school_manager?
-      current_user.current_classroom
+    case current_user
+    when is_a?(Parent) then current_child.classroom
+    when is_a?(Teacher) || is_a?(SchoolManager) then current_user.current_classroom
     else
-      ##
-      ## Expection => No Parent/Teacher/SchoolManager User
-      ##
+      ### TODO: Expection => No Parent/Teacher/SchoolManager User
     end
   end
 
-  #
   # Public: Helper method to get current child
   #
-  # If current_user is Parent
-  #
-  #   => returns current_user.current_child
-  #
+  # Return Child
   def current_child
     if current_user.parent?
       current_user.current_child
     else
-      ##
-      ## Expection => Only Parents have Children
-      ##
+      ### TODO: Expection => Only Parents have Children
     end
   end
 
   private
 
+  # Private: Set website locale if params[:lang] is a correct locale
+  #
+  # Return nothing
   def set_website_locale
-    I18n.locale = params[:lang] if %w(es ca).include?(params[:lang])
+    app_locales = %w(es ca)
+    I18n.locale = params[:lang] if app_locales.include?(params[:lang])
   end
 
+  # Private: Add current_child (if current_user is a Parent) or current_classroom
+  # (if current_user is a Teacher or SchoolManager) to current_user
+  #
+  # Return true/false
   def set_current_data
     if current_user.parent?
       current_user.add_current_child
     elsif current_user.teacher? || current_user.school_manager?
       current_user.add_current_classroom
     else
-      ##
-      ## Expection => No Parent/Teacher/SchoolManager User
-      ##
+      ### TODO: Expection => No Parent/Teacher/SchoolManager User
+      return false
     end
-  end  
+    return true
+  end
 
   def redirect_if_current_user_is_parent?
     redirect_to dashboard_path if current_user.parent?
