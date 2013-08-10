@@ -1,0 +1,1 @@
+json.partial! 'api/materials/material', material: @material

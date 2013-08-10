@@ -1,11 +1,5 @@
 class Api::MaterialsController < ApplicationController
 
-  class Material < ::Material
-    def as_json(options = {})
-      super
-    end
-  end
-
   respond_to :json
 
   before_filter :authenticate_user!
@@ -14,14 +8,22 @@ class Api::MaterialsController < ApplicationController
 
   def index
     if current_user.parent?
-      respond_with current_child.materials.all, include: :subject
+      child = current_user.children.find(params[:child_id])
+      @materials = child.materials
     else
-      respond_with current_classroom.materials.all, include: [:subject, :children]
+      classroom = current_user.classrooms.find(params[:classroom_id])
+      @materials = classroom.materials
     end
   end
 
   def show
-    respond_with current_classroom.materials.find(params[:id])
+    if current_user.parent?
+      child = current_user.children.find(params[:child_id])
+      @material = child.materials.find(params[:id])
+    else
+      classroom = current_user.classrooms.find(params[:classroom_id])
+      @material = classroom.materials.find(params[:id])
+    end
   end
 
   def create
