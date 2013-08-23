@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722153120) do
+ActiveRecord::Schema.define(:version => 20130823190834) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -141,6 +141,8 @@ ActiveRecord::Schema.define(:version => 20130722153120) do
     t.integer  "classroom_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.text     "body"
+    t.integer  "subject_id"
   end
 
   add_index "materials", ["classroom_id"], :name => "index_materials_on_classroom_id"
