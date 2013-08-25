@@ -45,7 +45,6 @@ module ApplicationHelper
   end
 
   def sidebar_menu(classroom)
-    binding.pry
     menu_list = "<ul class='nav nav-list sidemenu'>"
     menu_list << "<li#{active_path?(dashboard_path)}><a href='#{dashboard_url}'><img src='#{asset_path('icons/dashboard-mini.png')}' />#{t ('sections.dashboard')}</a></li>"
     #menu_list << "<li#{active_path?(calendar_path)}><a href='#{calendar_url}'><img src='#{asset_path('icons/calendar-mini.png')}' />#{t ('sections.calendar')}</a></li>"
