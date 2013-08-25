@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   # Public: Check if current_user has current_child (if is a Parent) or
   # current_classroom (if is a Teacher or SchoolManager)
   #
-  # Return true/false
+  # Returns True/False
   def child_or_classroom_assigned?
     current_user.has_child_or_classroom_assigned?
   end
 
   # Public: Helper method to get current classroom
   #
-  # Return Classroom
+  # Returns Classroom
   def current_classroom
     case current_user
     when is_a?(Parent) then current_child.classroom
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   # Public: Helper method to get current child
   #
-  # Return Child
+  # Returns Child
   def current_child
     if current_user.parent?
       current_user.current_child
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   # Private: Set website locale if params[:lang] is a correct locale
   #
-  # Return nothing
+  # Returns nothing
   def set_website_locale
     app_locales = %w(es ca)
     I18n.locale = params[:lang] if app_locales.include?(params[:lang])
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   # Private: Add current_child (if current_user is a Parent) or current_classroom
   # (if current_user is a Teacher or SchoolManager) to current_user
   #
-  # Return true/false
+  # Returns True/False
   def set_current_data
     if current_user.parent?
       current_user.add_current_child
