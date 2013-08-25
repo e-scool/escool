@@ -45,11 +45,12 @@ module ApplicationHelper
   end
 
   def sidebar_menu(classroom)
+    binding.pry
     menu_list = "<ul class='nav nav-list sidemenu'>"
     menu_list << "<li#{active_path?(dashboard_path)}><a href='#{dashboard_url}'><img src='#{asset_path('icons/dashboard-mini.png')}' />#{t ('sections.dashboard')}</a></li>"
     #menu_list << "<li#{active_path?(calendar_path)}><a href='#{calendar_url}'><img src='#{asset_path('icons/calendar-mini.png')}' />#{t ('sections.calendar')}</a></li>"
 
-    optional_sections = ['materials', 'communications'] # 'daily_activities', 'lunch_reports'
+    optional_sections = ['communications', 'materials'] # 'daily_activities', 'lunch_reports'
 
     optional_sections.each do |i|
       menu_list << "<li#{active_path?(eval(i + '_path'))}><a href='#{eval(i + '_url')}'><img src='#{asset_path('icons/' + i + '-mini.png')}' />#{t ('sections.' + i)}</a></li>" if eval("classroom.classroom_type.#{i}?")
