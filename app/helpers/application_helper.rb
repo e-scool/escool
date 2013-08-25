@@ -36,14 +36,6 @@ module ApplicationHelper
     "$.#{type}('#{path}', {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}}, function(data) {$('##{target_tag_id}').html(data);});"
   end
 
-  def current_classroom
-    if current_user.parent?
-      current_user.current_child.classroom
-    else
-      current_user.current_classroom
-    end
-  end
-
   def sidebar_menu(classroom)
     menu_list = "<ul class='nav nav-list sidemenu'>"
     menu_list << "<li#{active_path?(dashboard_path)}><a href='#{dashboard_url}'><img src='#{asset_path('icons/dashboard-mini.png')}' />#{t ('sections.dashboard')}</a></li>"
