@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
   #
   # Returns Classroom
   def current_classroom
-    case current_user
-    when is_a?(Parent) then current_child.classroom
-    when is_a?(Teacher) || is_a?(SchoolManager) then current_user.current_classroom
+    if current_user.is_a?(Parent)
+      current_child.classroom
+    elsif current_user.is_a(Teacher) || current_user.is_a?(SchoolManager)
+      current_user.current_classroom
     else
       ### TODO: Expection => No Parent/Teacher/SchoolManager User
     end
