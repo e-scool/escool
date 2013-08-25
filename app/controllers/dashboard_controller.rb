@@ -8,15 +8,13 @@ class DashboardController < ApplicationController
 
   def index
     if current_user.parent?
-      @communication = current_classroom.communications.joins(:children).where("children_communications.child_id = ?", current_child.id).order("date DESC").first
-      @material = current_classroom.materials.joins(:children).where("children_materials.child_id = ? AND date > ?", current_child.id, Date.yesterday).order("date ASC").first
+      @communication = current_child.communications.joins(:children).where("children_communications.child_id = ?", current_child.id).order("date DESC").first
+      @material = current_child.materials.joins(:children).where("children_materials.child_id = ? AND date > ?", current_child.id, Date.yesterday).order("date ASC").first
     elsif current_user.teacher? || current_user.school_manager?
       @communication = current_classroom.communications.order("date DESC").first
       @material = current_classroom.materials.where("date > ?", Date.yesterday).order("date ASC").first
     else
-      ##
-      ## Expection => No Parent/Teacher/SchoolManager User
-      ##
+      ## TODO: Expection => No Parent/Teacher/SchoolManager User
     end
   end
 
