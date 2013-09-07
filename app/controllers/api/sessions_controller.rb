@@ -1,4 +1,5 @@
 class Api::SessionsController < ApplicationController
+  include Devise::Controllers::Helpers
 
   skip_before_filter :verify_authenticity_token
 
@@ -39,6 +40,7 @@ class Api::SessionsController < ApplicationController
       logger.info('Token not found.')
       render status: 404, json: {message: 'Invalid token.'}
     else
+      sign_out(@user)
       @user.reset_authentication_token!
       render status: 200, json: {token: params[:id]}
     end
