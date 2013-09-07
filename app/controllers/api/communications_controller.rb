@@ -7,6 +7,11 @@ class Api::CommunicationsController < ApplicationController
   before_filter :redirect_if_current_user_is_not_teacher?, only: [:create, :update, :destroy]
 
   def index
+
+    5.times { puts '********************' }
+    puts current_user.inspect
+    5.times { puts '********************' }
+
     if current_user.parent?
       child = current_user.children.find(params[:child_id])
       @communications = child.communications
