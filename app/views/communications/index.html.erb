@@ -1,7 +1,40 @@
 <% if current_user.teacher? %>
-  <div class="action-buttons">
+  <!-- <div class="action-buttons">
     <button class="btn add" type="button"><i class="icon-plus"></i> Afegir comunicació</button>
-  </div>
+  </div> -->
 
-  <%= render partial: 'form' %>
+  <%#= render partial: 'form' %>
 <% end %>
+
+<ul class="items-list">
+  <li class="item">
+    <div class="date">
+      <span class="day">22</span>
+      <span class="month">Novembre</span>
+    </div>
+    <div class="content">
+      <p class="title">Sortida de primavera</p>
+      <p class="body">El proper dia 22 de novembre marxarem tots a la casa de colònies de Ribes de Fresser.</p>
+    </div>
+  </li>
+  <li class="item">
+    <div class="date">
+      <span class="day">22</span>
+      <span class="month">Novembre</span>
+    </div>
+    <div class="content">
+      <p class="title">Sortida de primavera</p>
+      <p class="body">El proper dia 22 de novembre marxarem tots a la casa de colònies de Ribes de Fresser.</p>
+    </div>
+  </li>
+  <li class="item">
+    <div class="date">
+      <span class="day">22</span>
+      <span class="month">Novembre</span>
+    </div>
+    <div class="content">
+      <p class="title">Sortida de primavera</p>
+      <p class="body">El proper dia 22 de novembre marxarem tots a la casa de colònies de Ribes de Fresser.</p>
+    </div>
+  </li>
+</ul>
