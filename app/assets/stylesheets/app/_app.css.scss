@@ -26,7 +26,8 @@
     #header {
       padding: 18px 30px;
       border-bottom: 1px solid #ddd;
-      @include background-image(linear-gradient(top, #f5f5f5, #eee));
+      position: relative;
+      @include background-image(linear-gradient(top, #f8f8f8, #f3f3f3));
       @include clearfix;
       .title {
         float: left;
@@ -44,10 +45,30 @@
           color: #333;
         }
       }
-      ul.header-buttons {
-        float: right;
-        li {
-
+      .header-buttons {
+        right: 30px;
+        bottom: 22px;
+        position: absolute;
+        button, .button {
+          padding: 6px 10px 6px 26px;
+          color: #fff;
+          margin-left: 10px;
+          float: left;
+          border: none;
+          color: #fff;
+          text-decoration: none;
+          font-size: 15px;
+          font-family: 'Scada', sans-serif;
+          font-weight: normal;
+          @include border-radius(5px);
+          @include background-image(linear-gradient(top, #999, #888));
+          &:focus {
+            outline-width: 0;
+            outline: none;
+          }
+          &:hover {
+            @include background-image(linear-gradient(top, #888, #777));
+          }
         }
       }
     }

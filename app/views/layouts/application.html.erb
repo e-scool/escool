@@ -29,22 +29,14 @@
 
     <div id="main-wrapper">
       <div id="sidebar-wrapper">
-        <%= render :partial => 'shared/sidebar' %>
+        <%= render partial: 'shared/sidebar' %>
       </div>
 
       <div id="content-wrapper">
-        <div id="header">
-          <%= header_title %>
-
-          <% if current_user.parent? %>
-            <%= render :partial => 'shared/sidebar/update_child_button' %>
-          <% else # current_user.teacher? || current_user.school_manager? %>
-            <%= render :partial => 'shared/sidebar/update_classroom_button' %>
-          <% end %>
-        </div>
+        <%= render partial: 'shared/header' %>
 
         <div id="content">
-          <%= render :partial => 'layouts/messages' %>
+          <%= render partial: 'layouts/messages' %>
           <%= yield %>
         </div>
       </div>
