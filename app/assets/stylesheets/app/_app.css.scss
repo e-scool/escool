@@ -15,10 +15,8 @@
     #logo-section {
       display: block;
       text-align: center;
+      padding: 30px 0;
       @include background(radial-gradient(color-stops(#f9b951, $orange), center center));
-      img.logo {
-        padding: 30px 0;
-      }
     }
     ul#sidebar-menu {
       margin: 0;
@@ -45,6 +43,7 @@
           a {
             color: #000;
             background: #fff;
+            border-left: 3px solid $orange;
           }
         }
       }
@@ -103,7 +102,7 @@
       }
     }
     #content {
-      padding: 30px;
+      padding: 40px;
     }
   }
 }
