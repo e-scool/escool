@@ -66,9 +66,6 @@ Escool::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
+  # Set up ember variant
   config.ember.variant = :development
-
-  config.middleware.insert_after(Rack::Lock, "Rack::Auth::Basic", "Restricted") do |u, p|
-    u == 'e-scool' && p == 'cool2013es'
-  end
 end

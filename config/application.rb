@@ -58,6 +58,11 @@ module Escool
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
+    # Set up ember variant
+    config.ember.variant ||= :production
+
+    config.handlebars.templates_root = 'templates'
+
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.initialize_on_precompile = true
@@ -69,6 +74,7 @@ module Escool
       'website.js',
       'translations.js',
       'active_admin.js',
+      'ember/app.js'
     ]
     # active_admin/print.css
 
