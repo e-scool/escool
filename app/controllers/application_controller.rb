@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   # Returns a Classroom.
   def current_classroom
     if current_user.is_a?(Parent)
-      current_child.classroom
+      @current_classroom ||= current_child.classroom
     elsif current_user.is_a?(Teacher) || current_user.is_a?(SchoolManager)
-      current_user.current_classroom
+      @current_classroom ||= current_user.current_classroom
     else
       ### TODO: Expection => No Parent/Teacher/SchoolManager User.
     end
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   # Returns a Child.
   def current_child
     if current_user.parent?
-      current_user.current_child
+      @current_child ||= current_user.current_child
     else
       ### TODO: Expection => Only Parents have Children.
     end
