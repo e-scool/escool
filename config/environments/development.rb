@@ -38,5 +38,7 @@ Escool::Application.configure do
   # Quite assets (false to show on log)
   # config.quiet_assets = false
 
+  config.ember.variant = :development
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

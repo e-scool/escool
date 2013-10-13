@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/emberjs/ember-rails.git
+  revision: 2ef75c2b87dbdefde849a2a52a5ac54203f5b0dc
+  specs:
+    ember-rails (0.13.0)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source
+      ember-source
+      execjs (>= 1.2)
+      handlebars-source
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -14,6 +27,8 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activeadmin (0.6.0)
       arbre (>= 1.0.1)
       bourbon (>= 1.0.0)
@@ -43,6 +58,10 @@ GEM
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (3.0.2)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
     bcrypt-ruby (3.0.1)
     bootstrap-datepicker-rails (1.1.1.1)
       railties (>= 3.0)
@@ -73,6 +92,10 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    ember-data-source (0.14)
+      ember-source
+    ember-source (1.0.0.rc6.2)
+      handlebars-source (= 1.0.12)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -81,6 +104,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     fssm (0.2.10)
+    handlebars-source (1.0.12)
     has_scope (0.5.1)
     hike (1.2.3)
     i18n (0.6.1)
@@ -194,6 +218,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
+  ember-rails!
+  ember-source (= 1.0.0.rc6.2)
+  handlebars-source (~> 1.0.12)
   i18n-js
   jbuilder
   jquery-rails

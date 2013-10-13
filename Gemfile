@@ -56,3 +56,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
+
+gem 'ember-rails', git: 'https://github.com/emberjs/ember-rails.git'
+gem 'ember-source', '1.0.0.rc6.2'
+gem 'handlebars-source', '~> 1.0.12'
