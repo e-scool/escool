@@ -68,7 +68,7 @@ Escool::Application.configure do
 
   config.ember.variant = :development
 
-  config.middleware.insert_after(::Rack::Lock, "::Rack::Auth::Basic", "Restricted") do |u, p|
+  config.middleware.insert_after(Rack::Lock, "Rack::Auth::Basic", "Restricted") do |u, p|
     u == 'e-scool' && p == 'cool2013es'
   end
 end
