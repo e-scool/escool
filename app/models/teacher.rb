@@ -6,7 +6,6 @@ class Teacher < User
 
   attr_accessible :classrooms
 
-
   def add_current_classroom
     self.current_classroom_id = self.classrooms.first.id
     self.save
@@ -15,5 +14,5 @@ class Teacher < User
   def classroom_subjects(classroom)
     classroom.subjects.where(:teacher_id => self.id).all
   end
-  
+
 end

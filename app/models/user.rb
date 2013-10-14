@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base  
+class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :omniauthable, :confirmable
@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :username, :email, :password, :password_confirmation, :remember_me
 
   validates :username, uniqueness: true
@@ -22,11 +21,14 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-  ### This is the correct method you override with the code above
+  ### This is the correct method overrided with the code above
   ### def self.find_for_database_authentication(warden_conditions)
   ### end
 
-  # Public: Check if is User has current_child (if is Parent) or current_child (if is Teacher or SchoolManager)
+  # Public: Checks if this user has current_child (if it's a Parent) or
+  # current_classroom (if it's a Teacher or SchoolManager).
+  #
+  # Returns True/False.
   def has_child_or_classroom_assigned?
     if self.parent?
       self.current_child_id?
@@ -38,15 +40,24 @@ class User < ActiveRecord::Base
       ##
     end
   end
-  
+
+  # Public: Checks if this user is a Parent.
+  #
+  # Returns True/False.
   def parent?
     self.is_a?(Parent)
   end
 
+  # Public: Checks if this user is a Teacher.
+  #
+  # Returns True/False.
   def teacher?
     self.is_a?(Teacher)
   end
 
+  # Public: Checks if this user is a SchoolManager.
+  #
+  # Returns True/False.
   def school_manager?
     self.is_a?(SchoolManager)
   end
