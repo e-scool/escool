@@ -1,3 +1,7 @@
+//= require handlebars
+//= require ember
+//= require ember-data
+
 //= require ./store
 //= require_tree ./mixins
 //= require_tree ./models
