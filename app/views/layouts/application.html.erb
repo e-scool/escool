@@ -28,16 +28,18 @@
   <body>
 
     <div id="main-wrapper">
-      <div id="sidebar-wrapper">
-        <%= render partial: 'shared/sidebar' %>
-      </div>
+      <div id="ember-application">
+        <div id="sidebar-wrapper">
+          <%= render partial: 'shared/sidebar' %>
+        </div>
 
-      <div id="content-wrapper">
-        <%= render partial: 'shared/header' %>
+        <div id="content-wrapper">
+          <%= render partial: 'shared/header' %>
 
-        <div id="content">
-          <%= render partial: 'layouts/messages' %>
-          <%= yield %>
+          <div id="content">
+            <%= render partial: 'layouts/messages' %>
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>

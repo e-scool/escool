@@ -2,6 +2,8 @@
 //= require ember
 //= require ember-data
 
+//= require_self
+
 //= require ./store
 //= require_tree ./mixins
 //= require_tree ./models
@@ -12,7 +14,6 @@
 //= require_tree ./templates
 //= require ./router
 //= require_tree ./routes
-//= require_self
 
 (function (exports) {
   exports.App = Ember.Application.create({

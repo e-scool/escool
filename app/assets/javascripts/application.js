@@ -16,6 +16,7 @@
 //= require bootstrap-modal
 //= require bootstrap-dropdown
 //= require bootstrap-datepicker
+//= require ember/app
 
 $(document).ready(function() {
 
