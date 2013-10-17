@@ -17,7 +17,7 @@ development:
   encoding: utf8
   database: escool_development
   pool: 5
-  username: postgres
+  username:
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: utf8
   database: escool_test
   pool: 5
-  username: postgres
+  username:
   password:
 
 staging:
