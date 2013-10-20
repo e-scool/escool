@@ -15,12 +15,10 @@
     background: #eee;
 
     #logo{
-      $image: 'logo-small.png';
-      height: image-height($image);
+      height: 180px;
       display: block;
       text-align: center;
-      padding: 30px 0;
-      @include background(image-url($image) no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center)); 
+      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center)); 
     }
 
     nav#sidebar-menu{
