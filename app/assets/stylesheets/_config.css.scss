@@ -1,7 +1,10 @@
 //*******************
-//  SASS Variables
+//  SASS Config
 //*******************
 
+$app_sections: dashboard, communications, materials;
+
+// Colors
 $orange: #ff9b40;
 $dark_orange: #ff7700;
 $light_orange: #f9b951;
