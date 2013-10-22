@@ -1,8 +1,4 @@
-class Api::ChildrenController < ApplicationController
-
-  respond_to :json
-
-  before_filter :authenticate_user!
+class Api::ChildrenController < Api::BaseController
 
   def index
     if current_user.parent?

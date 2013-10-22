@@ -47,6 +47,7 @@ gem 'jquery-ui-rails'
 # To use debugger
 # gem 'debugger'
 
+gem 'draper'
 gem 'jbuilder'
 
 gem 'activeadmin'
