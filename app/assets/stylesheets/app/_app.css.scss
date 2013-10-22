@@ -18,7 +18,7 @@
       height: 180px;
       display: block;
       text-align: center;
-      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center)); 
+      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center));
     }
 
     nav#sidebar-menu{
@@ -34,9 +34,7 @@
         font-family: 'Scada', sans-serif;
         color: #666;
 
-        $sections: dashboard, communications, materials;
-    
-        @each $section in $sections {
+        @each $section in $app_sections {
           &.#{$section} {
             $image: 'sidebar/#{$section}-mini.png';
             background: image-url($image) no-repeat 20px center;
@@ -80,8 +78,7 @@
         color: $orange;
         font-family: 'Scada', sans-serif;
 
-        $sections: dashboard, communications, materials;
-        @each $section in $sections {
+        @each $section in $app_sections {
           &.#{$section} {
             $image: 'icons/#{$section}.png';
             background: image-url($image) no-repeat top left;
