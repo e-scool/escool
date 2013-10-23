@@ -1,9 +1,11 @@
 // For more information see: http://emberjs.com/guides/routing/
 
+App.Router.reopen({
+  rootURL: '/dashboard'
+});
+
 App.Router.map(function() {
-  this.resource('communications', {path: '/communications'}, function(){
-    this.route('show', {path: '/:communication_id'});
-  });
+  this.resource('communications');
 });
 
 App.Route = Ember.Route.extend({
