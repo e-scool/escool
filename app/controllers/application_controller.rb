@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_child,
-                :current_classroom
+                :current_classroom,
+                :active_classroom_sections
 
   # Public: Check if current_user has current_child (if is a Parent) or
   # current_classroom (if is a Teacher or SchoolManager).
@@ -34,6 +35,13 @@ class ApplicationController < ActionController::Base
     else
       ### TODO: Expection => Only Parents have Children.
     end
+  end
+
+  # Public: Helper method to get current classroom active sections.
+  #
+  # Returns a String.
+  def active_classroom_sections
+    @active_classroom_sections ||= current_classroom.classroom_type.active_sections.to_s.html_safe
   end
 
   private

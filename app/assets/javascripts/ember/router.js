@@ -1,11 +1,13 @@
 // For more information see: http://emberjs.com/guides/routing/
 
-App.Router.reopen({
-  rootURL: '/dashboard'
+App.Router.map(function() {
+  this.resource('dashboard', {path: '/'});
+  this.resource('communications');
+  this.resource('materials');
 });
 
-App.Router.map(function() {
-  this.resource('communications');
+App.Router.reopen({
+  rootURL: '/dashboard/'
 });
 
 App.Route = Ember.Route.extend({

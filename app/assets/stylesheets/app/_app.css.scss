@@ -1,7 +1,7 @@
 @import "dashboard";
 @import "table_grids";
 
-#main-wrapper{
+.main-wrapper{
   position: fixed;
   width: 100%;
   height: 100%;
@@ -21,7 +21,7 @@
       @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center));
     }
 
-    nav#sidebar-menu{
+    .sidebar-menu{
       margin: 0;
 
       a{

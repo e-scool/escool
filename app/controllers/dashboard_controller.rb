@@ -18,9 +18,6 @@ class DashboardController < ApplicationController
     end
   end
 
-  def docents
-  end
-
   def update_current_child
     if current_user.children.select(:id).map{|i| i.id}.include?(params[:child_id].to_i)
       current_user.update_attribute(:current_child, Child.find(params[:child_id]))

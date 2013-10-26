@@ -1,0 +1,5 @@
+<div id="logo"></div>
+
+{{#each section in view.activeSections}}
+  {{#link-to section class=section}}{{sectionName section}}{{/link-to}}
+{{/each}}
