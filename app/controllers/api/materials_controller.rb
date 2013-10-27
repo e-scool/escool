@@ -2,21 +2,17 @@ class Api::MaterialsController < Api::BaseController
 
   def index
     if current_user.parent?
-      child = current_user.children.find(params[:child_id])
-      @materials = child.materials
+      @materials = current_child.materials
     else
-      classroom = current_user.classrooms.find(params[:classroom_id])
-      @materials = classroom.materials
+      @materials = current_classroom.materials
     end
   end
 
   def show
     if current_user.parent?
-      child = current_user.children.find(params[:child_id])
-      @material = child.materials.find(params[:id])
+      @material = current_child.materials.find(params[:id])
     else
-      classroom = current_user.classrooms.find(params[:classroom_id])
-      @material = classroom.materials.find(params[:id])
+      @material = current_classroom.materials.find(params[:id])
     end
   end
 
