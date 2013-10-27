@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     elsif current_user.is_a?(Teacher) || current_user.is_a?(SchoolManager)
       @current_classroom ||= current_user.current_classroom
     else
-      ### TODO: Expection => No Parent/Teacher/SchoolManager User.
+      ### TODO: Exception => No Parent/Teacher/SchoolManager User.
     end
   end
 
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     if current_user.parent?
       @current_child ||= current_user.current_child
     else
-      ### TODO: Expection => Only Parents have Children.
+      ### TODO: Exception => Only Parents have Children.
     end
   end
 
@@ -57,17 +57,15 @@ class ApplicationController < ActionController::Base
   # Private: Add current_child (if current_user is a Parent) or current_classroom
   # (if current_user is a Teacher or SchoolManager) to current_user.
   #
-  # Returns True/False.
+  # Returns nothing.
   def set_current_data
     if current_user.parent?
       current_user.add_current_child
     elsif current_user.teacher? || current_user.school_manager?
       current_user.add_current_classroom
     else
-      ### TODO: Expection => No Parent/Teacher/SchoolManager User.
-      return false
+      ### TODO: Exception => No Parent/Teacher/SchoolManager User.
     end
-    return true
   end
 
   def redirect_if_current_user_is_parent?

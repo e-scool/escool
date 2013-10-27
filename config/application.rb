@@ -88,5 +88,7 @@ module Escool
       Devise::UnlocksController.layout "not_logged"
       Devise::PasswordsController.layout "not_logged"
     end
+
+    config.paths["config/routes"].concat(Dir[Rails.root.join("config/routes/*.rb")])
   end
 end
