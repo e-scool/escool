@@ -10,10 +10,8 @@ class Api::BaseController < ActionController::Base
   #
   # Returns a Classroom.
   def current_classroom
-    if current_user.is_a?(Parent)
-      @current_classroom ||= current_child.classroom
-    elsif current_user.is_a?(Teacher) || current_user.is_a?(SchoolManager)
-      @current_classroom ||= current_user.current_classroom
+    if %w(Parent Teacher SchoolManager).include?(current_user.type)
+      @current_classroom ||= get_current_classroom
     else
       ### TODO: Expection => No Parent/Teacher/SchoolManager User.
     end
@@ -24,10 +22,23 @@ class Api::BaseController < ActionController::Base
   # Returns a Child.
   def current_child
     if current_user.parent?
-      @current_child ||= current_user.current_child
+      @current_child ||= get_current_child
     else
       ### TODO: Expection => Only Parents have Children.
     end
+  end
+
+  private
+
+  def get_current_child
+    return current_user.children.find(params[:child_id]) if params[:child_id]
+    current_user.current_child
+  end
+
+  def get_current_classroom
+    return current_user.current_child.classroom if current_user.parent?
+    return current_user.classrooms.find(params[:classroom_id]) if params[:classroom_id]
+    current_user.current_classroom
   end
 
 end

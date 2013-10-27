@@ -2,21 +2,17 @@ class Api::CommunicationsController < Api::BaseController
 
   def index
     if current_user.parent?
-      child = current_user.children.find(params[:child_id])
-      @communications = child.communications
+      @communications = current_child.communications
     else
-      classroom = current_user.classrooms.find(params[:classroom_id])
-      @communications = classroom.communications
+      @communications = current_classroom.communications
     end
   end
 
   def show
     if current_user.parent?
-      child = current_user.children.find(params[:child_id])
-      @communication = child.communications.find(params[:id])
+      @communication = current_child.communications.find(params[:id])
     else
-      classroom = current_user.classrooms.find(params[:classroom_id])
-      @communication = classroom.communications.find(params[:id])
+      @communication = current_classroom.communications.find(params[:id])
     end
   end
 
