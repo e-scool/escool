@@ -8,7 +8,7 @@ class Material < ActiveRecord::Base
   belongs_to :subject
   has_and_belongs_to_many :children, join_table: "children_materials"
 
-  attr_accessible :classroom, :children, :subject, :title, :date, :subject
+  attr_accessible :classroom, :children, :subject, :title, :date, :body
 
   default_scope order("date DESC")
 

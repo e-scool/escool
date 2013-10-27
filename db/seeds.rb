@@ -67,3 +67,32 @@ for i in 1..140
 	classroom_count >= 7 ? classroom_count = 1 : classroom_count += 1
 	parent_count >= 100 ? parent_count = 1 : parent_count += 1
 end
+
+# Create Communications and Materials
+puts '=> Creating Communications and Materials'
+parent = Parent.find_by_username('pares1')
+parent.children.each do |c|
+  communication_attrs = {
+    classroom: c.classroom,
+    children: c.classroom.children.all,
+    subject: c.classroom.subjects.first,
+    title: "El proper cap de setmana sortim de festa!",
+    body: "Ho heu sentit bé, el proper dissabte marxem tota l'escola plegats de festa en motiu del centenari del centre. Party hard!",
+    date: 2.months.from_now
+  }
+
+  material_attrs = {
+    classroom: c.classroom,
+    children: c.classroom.children.all,
+    subject: c.classroom.subjects.first,
+    title: "Llibres Escolars",
+    body: "Ho heu sentit bé, el proper dissabte marxem tota l'escola plegats de festa en motiu del centenari del centre. Party hard!",
+    date: 2.months.from_now
+  }
+
+  10.times do
+    Communication.create!(communication_attrs)
+    Material.create!(material_attrs)
+  end
+end
+
