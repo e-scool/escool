@@ -90,7 +90,7 @@ parent.children.each do |c|
     date: 2.months.from_now
   }
 
-  10.times do
+  5.times do
     Communication.create!(communication_attrs)
     Material.create!(material_attrs)
   end
