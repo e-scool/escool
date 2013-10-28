@@ -17,6 +17,7 @@
 
 (function (exports) {
   exports.App = Ember.Application.create({
-    rootElement: '#ember-application'
+    rootElement: '#ember-application',
+    LOG_TRANSITIONS: true
   });
 })(window);
