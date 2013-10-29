@@ -17,14 +17,17 @@ class Api::CommunicationsController < Api::BaseController
   end
 
   def create
+    return if current_user.parent?
     respond_with current_classroom.communications.create(params[:communication])
   end
 
   def update
+    return if current_user.parent?
     respond_with current_classroom.communications.update(params[:id], params[:communication])
   end
 
   def destroy
+    return if current_user.parent?
     respond_with current_classroom.communications.destroy(params[:id])
   end
 

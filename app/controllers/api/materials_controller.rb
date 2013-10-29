@@ -17,14 +17,17 @@ class Api::MaterialsController < Api::BaseController
   end
 
   def create
+    return if current_user.parent?
     respond_with current_classroom.materials.create(params[:material])
   end
 
   def update
+    return if current_user.parent?
     respond_with current_classroom.materials.update(params[:id], params[:material])
   end
 
   def destroy
+    return if current_user.parent?
     respond_with current_classroom.materials.destroy(params[:id])
   end
 
