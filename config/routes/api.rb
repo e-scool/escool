@@ -5,5 +5,6 @@ Escool::Application.routes.draw do
     resources :communications,  only: [:index, :show, :create, :update, :destroy]
     resources :materials,       only: [:index, :show, :create, :update, :destroy]
     resources :users,           only: [:index, :show]
+    resources :classrooms,      only: [:index]
   end
 end
