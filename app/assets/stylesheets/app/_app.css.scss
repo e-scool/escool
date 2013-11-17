@@ -97,19 +97,18 @@
       }
 
       .header-buttons{
-        right: 30px;
-        bottom: 22px;
-        position: absolute;
+        position: relative;
+        float: right;
 
         button, .button{
-          padding: 6px 10px 6px 26px;
-          color: #fff;
+          padding: 0 8px 0 26px;
           margin-left: 10px;
-          float: left;
+          display: inline-block;
+          line-height: 30px;
           border: none;
           color: #fff;
           text-decoration: none;
-          font-size: 15px;
+          font-size: 14px;
           font-family: 'Scada', sans-serif;
           font-weight: normal;
           @include border-radius(5px);
