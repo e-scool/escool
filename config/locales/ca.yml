@@ -1,4 +1,8 @@
 ca:
+  common:
+    child: "Nen/a"
+    classroom: "Classe"
+    my_profile: "El meu perfil"
   website:
     what_is: "Què és e-Scool?"
     objectives: "Objectius"

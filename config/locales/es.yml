@@ -1,4 +1,8 @@
 es:
+  common:
+    child: "Niño/a"
+    classroom: "Clase"
+    my_profile: "Mi perfil"
   website:
     what_is: "¿Qué es e-Scool?"
     objectives: "Objetivos"
