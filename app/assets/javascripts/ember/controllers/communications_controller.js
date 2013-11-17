@@ -1,7 +1,4 @@
 App.CommunicationsController = Ember.ArrayController.extend({
-  needs: ['application'],
-  currentUser: Ember.computed.alias('controllers.application.currentUser'),
-
   actions: {
     new: function () {
       alert('new action!');
