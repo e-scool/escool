@@ -16,7 +16,7 @@
 //= require bootstrap-modal
 //= require bootstrap-dropdown
 //= require bootstrap-datepicker
-//= require moment
+//= require moment-with-langs.min
 //= require ember/app
 
 $(document).ready(function() {
