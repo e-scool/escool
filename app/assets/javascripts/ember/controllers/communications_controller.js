@@ -1,7 +1,9 @@
 App.CommunicationsController = Ember.ArrayController.extend({
   actions: {
-    new: function () {
-      alert('new action!');
+    new: function() {
+      $('.modal-wrapper').addClass('visible');
+      $('.modal-content').addClass('visible');
+      $('.modal-overlay').css('opacity', '1');
     }
 
     // buy: function(){

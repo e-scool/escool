@@ -1,0 +1,98 @@
+// BORDERS
+$default-border-color: #666;
+$default-border-radius: 3rem;
+
+$minimal-border-radius: 0.2rem;
+$small-border-radius: 0.333rem;
+$middle-border-radius: 0.5rem;
+$default-border-radius: 0.666rem;
+
+%gross-border {
+  border-radius: $default-border-radius;
+  border: 2px solid $default-border-color;
+}
+
+///////
+//
+//  TRANSITIONS
+//
+///////
+
+$default-hover-duration:     .5s;
+$ease-in               : cubic-bezier(0.420, 0.000, 1.000, 1.000);
+$ease-out              : cubic-bezier(0.000, 0.000, 0.580, 1.000);
+$ease-in-out           : cubic-bezier(0.420, 0.000, 0.580, 1.000);
+$ease-back-in          : cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$ease-back-out         : cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$ease-back-in-out      : cubic-bezier(0.680, -0.550, 0.265, 1.550);
+$ease-quad-in          : cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$ease-quad-out         : cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$ease-quad-in-out      : cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$ease-cubic-in         : cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+.modal-wrapper{
+  @mixin colored-modal-content($color, $highlight-color){
+    border-color       : $color;
+    // TODO review .modal-text span
+    h1, ol li:before, .modal-text span{
+      color            : $highlight-color;
+    }
+    > button.close{
+      background       : $color;
+    }
+  }
+
+  position             : fixed;
+  top                  : 0;
+  left                 : 0;
+  width                : 100%;
+  height               : 100%;
+  z-index              : 100000;
+  background-color     : rgba(0, 0, 0, 0.3);
+  cursor               : pointer;
+  opacity              : 0;
+  visibility           : hidden;
+  @include             transition(all .5s $ease-quad-in-out);
+
+  &.visible{
+    opacity            : 1;
+    visibility         : visible;
+  }
+
+  .modal-overlay{
+    position           : absolute;
+    top                : 0;
+    left               : 0;
+    width              : 100%;
+    height             : 100%;
+    cursor             : pointer;
+    opacity            : 0;
+
+    $modal-width       : 600px;
+    $modal-height      : 400px;
+
+    .modal-content{
+      position         : absolute;
+      top              : 50%;
+      left             : 50%;
+      z-index          : 10;
+      background       : #ffffff;
+      width            : $modal-width;
+      height           : $modal-height;
+      margin-top       : -$modal-height/2;
+      margin-left      : -$modal-width/2;
+      cursor           : default;
+      @extend           %gross-border;
+      @include          colored-modal-content($default-border-color, #666);
+      @include          transition(opacity .5s .2s $ease-quad-in-out, visibility .7s);
+      visibility       : hidden;
+      opacity          : 0;
+
+      &.visible{
+        opacity            : 1;
+        visibility         : visible;
+      }
+    }
+  }
+}

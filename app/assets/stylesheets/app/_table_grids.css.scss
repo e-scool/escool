@@ -1,78 +1,81 @@
-#content .items-list{
-  margin: 0;
+#content{
+  .items-list{
+    margin: 0;
 
-  .item{
-    $item_height: 80px;
+    .item{
+      $item-height: 80px;
 
-    margin-top: 10px;
-    height: $item_height;
-    border: 1px solid #e3e3e3;
-    font-family: 'Scada', sans-serif;
-    color: #666;
-    overflow: hidden;
-    @include background-image(linear-gradient(left, #f6f6f6, #e9e9e9));
+      margin-top: 10px;
+      height: $item-height;
+      border: 1px solid #e3e3e3;
+      font-family: 'Scada', sans-serif;
+      color: #666;
+      overflow: hidden;
+      @include background-image(linear-gradient(left, #f6f6f6, #e9e9e9));
 
-    &:first-child{
-      margin-top: 0;
-    }
+      &:first-child{
+        margin-top: 0;
+      }
 
-    $date_width: 80px;
+      $date-width: 80px;
 
-    .date{
-      width: $date_width;
-      height: $item_height;
-      padding-top: 10px;
-      margin-right: 16px;
-      display: inline-block;
-      float: left;
-      text-align: center;
-      border-right: 1px solid #e3e3e3;
+      .date{
+        width: $date-width;
+        height: $item-height;
+        padding-top: 10px;
+        margin-right: 16px;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        border-right: 1px solid #e3e3e3;
 
-      .day{
+        .day{
+          display: block;
+          height: 46px;
+          line-height: 46px;
+          font-size: 46px;
+          font-weight: bold;
+        }
+
+        .month{
+          display: block;
+          text-transform: uppercase;
+          height: 13px;
+          line-height: 13px;
+          font-size: 14px;
+          margin-top: 2px;
+        }
+
+        @include box-sizing(border-box);
+      }
+
+      .content{
+        height: $item-height;
         display: block;
-        height: 46px;
-        line-height: 46px;
-        font-size: 46px;
-        font-weight: bold;
+        padding: 18px 18px 18px 0;
+
+        .title{
+          line-height: 18px;
+          font-size: 18px;
+          height: 18px;
+          font-weight: bold;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .body{
+          margin-top: 8px;
+          line-height: 16px;
+          font-size: 16px;
+          height: 16px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        @include box-sizing(border-box);
       }
-
-      .month{
-        display: block;
-        text-transform: uppercase;
-        height: 13px;
-        line-height: 13px;
-        font-size: 14px;
-        margin-top: 2px;
-      }
-
-      @include box-sizing(border-box);
-    }
-    .content{
-      height: $item_height;
-      display: block;
-      padding: 18px 18px 18px 0;
-
-      .title{
-        line-height: 18px;
-        font-size: 18px;
-        height: 18px;
-        font-weight: bold;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .body{
-        margin-top: 8px;
-        line-height: 16px;
-        font-size: 16px;
-        height: 16px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      @include box-sizing(border-box);
     }
   }
 }
