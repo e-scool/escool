@@ -1,5 +1,10 @@
+@import "not_logged_layout";
 @import "dashboard";
 @import "table_grids";
+
+*:focus {
+  outline: none;
+}
 
 .main-wrapper{
   position: fixed;
@@ -113,11 +118,6 @@
           font-weight: normal;
           @include border-radius(5px);
           @include background-image(linear-gradient(top, #999, #888));
-
-          &:focus{
-            outline-width: 0;
-            outline: none;
-          }
 
           &:hover{
             @include background-image(linear-gradient(top, #888, #777));
