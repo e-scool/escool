@@ -1,15 +1,15 @@
 // BORDERS
-$default-border-color: #666;
-$default-border-radius: 3rem;
+$default-border-color  : #999;
 
-$minimal-border-radius: 0.2rem;
-$small-border-radius: 0.333rem;
-$middle-border-radius: 0.5rem;
-$default-border-radius: 0.666rem;
+$default-border-radius : 2rem;
+$minimal-border-radius : 0.2rem;
+$small-border-radius   : 0.333rem;
+$middle-border-radius  : 0.5rem;
+$default-border-radius : 0.666rem;
 
 %gross-border {
-  border-radius: $default-border-radius;
-  border: 2px solid $default-border-color;
+  border-radius        : $small-border-radius;
+  border               : 1px solid $default-border-color;
 }
 
 ///////
@@ -18,7 +18,7 @@ $default-border-radius: 0.666rem;
 //
 ///////
 
-$default-hover-duration:     .5s;
+$default-hover-duration: .3s;
 $ease-in               : cubic-bezier(0.420, 0.000, 1.000, 1.000);
 $ease-out              : cubic-bezier(0.000, 0.000, 0.580, 1.000);
 $ease-in-out           : cubic-bezier(0.420, 0.000, 0.580, 1.000);
@@ -32,17 +32,6 @@ $ease-cubic-in         : cubic-bezier(0.550, 0.055, 0.675, 0.190);
 $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
 .modal-wrapper{
-  @mixin colored-modal-content($color, $highlight-color){
-    border-color       : $color;
-    // TODO review .modal-text span
-    h1, ol li:before, .modal-text span{
-      color            : $highlight-color;
-    }
-    > button.close{
-      background       : $color;
-    }
-  }
-
   position             : fixed;
   top                  : 0;
   left                 : 0;
@@ -53,7 +42,7 @@ $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
   cursor               : pointer;
   opacity              : 0;
   visibility           : hidden;
-  @include             transition(all .5s $ease-quad-in-out);
+  @include             transition(all .3s $ease-quad-in-out);
 
   &.visible{
     opacity            : 1;
@@ -68,30 +57,114 @@ $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
     height             : 100%;
     cursor             : pointer;
     opacity            : 0;
+  }
 
-    $modal-width       : 600px;
-    $modal-height      : 400px;
+  .modal-content{
+    $modal-width       : 30rem;
+    $modal-height      : auto;
+    position           : absolute;
+    top                : 50%;
+    left               : 50%;
+    z-index            : 10;
+    background         : #eeeeee;
+    width              : $modal-width;
+    height             : $modal-height;
+    // margin-top         : -$modal-height/2;
+    margin-top         : -20rem;
+    margin-left        : -$modal-width/2;
+    cursor             : default;
+    border-color       : $default-border-color;
+    @extend             %gross-border;
+    @include            transition(opacity .3s .1s $ease-quad-in-out, visibility .5s);
+    visibility         : hidden;
+    opacity            : 0;
 
-    .modal-content{
-      position         : absolute;
-      top              : 50%;
-      left             : 50%;
-      z-index          : 10;
-      background       : #ffffff;
-      width            : $modal-width;
-      height           : $modal-height;
-      margin-top       : -$modal-height/2;
-      margin-left      : -$modal-width/2;
-      cursor           : default;
-      @extend           %gross-border;
-      @include          colored-modal-content($default-border-color, #666);
-      @include          transition(opacity .5s .2s $ease-quad-in-out, visibility .7s);
-      visibility       : hidden;
-      opacity          : 0;
+    &.visible{
+      opacity          : 1;
+      visibility       : visible;
+    }
 
-      &.visible{
-        opacity            : 1;
-        visibility         : visible;
+    .close-modal{
+      background: $orange;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      position: absolute;
+      color: #ffffff;
+      text-align: center;
+      top: 0;
+      right: 0;
+      padding: 0;
+      text-transform: uppercase;
+      border-bottom-left-radius: $small-border-radius;
+      border-top-right-radius: $small-border-radius - 0.1rem;
+      border-left: 1px solid #AAA;
+      border-bottom: 1px solid #AAA;
+      border-top: none;
+      border-right: none;
+      @include background-image(linear-gradient(top, $light-orange, $orange));
+
+      &:hover{
+        @include background-image(linear-gradient(top, darken($light-orange, 8%), darken($orange, 8%)));
+      }
+
+      @mixin absolute-top-left ($top:0, $left:0){
+        position : absolute;
+        top      : $top;
+        left     : $left;
+        right    : auto;
+        bottom   : auto;
+      }
+
+      &:after{
+        content     : "+";
+        margin-left : -0.5rem;
+        font-size   : 2rem;
+        font-family : 'Scada', sans-serif;
+        @include      absolute-top-left(-0.05rem, 50%);
+        @include      transform(rotate(45deg));
+        @include      transform-origin(50%, 50%);
+      }
+    }
+
+    &.form{
+      padding: 1.5rem;
+      font-family: 'Scada', sans-serif;
+      @include box-shadow(0 0 15px #777);
+
+      .title{
+        margin-bottom : 1rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        color: $orange;
+      }
+
+      .control-group{
+        margin-bottom: 0.6rem;
+
+        &.half{
+          width: 50%;
+
+          &.left{ float: left; }
+          &.right{ float: right; }
+        }
+
+        .controls{
+          select{ width: 100%; }
+          #date{ width: 160px; }
+        }
+
+        .control-label{
+          height: 1rem;
+          line-height: 1rem;
+          font-size: 1rem;
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      .buttons{
+        padding-top: 0.3rem;
+        text-align: right;
       }
     }
   }

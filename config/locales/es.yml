@@ -36,5 +36,9 @@ es:
     materials: "Material"
     communications: "Comunicaciones"
     teacher: "Docentes"
+  forms:
+    communications:
+      titles:
+        new:'Nueva comunicación'
   login: "Inicia sessión"
   close: "Cerrar"
