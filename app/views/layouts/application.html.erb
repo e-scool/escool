@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
   <head>
     <title>e-Scool</title>
     <link rel="shortcut icon" href="<%= asset_path('favicon.ico') %>" />
@@ -13,6 +12,7 @@
     <%= stylesheet_link_tag 'application-app', :media => 'all' %>
 
     <%= javascript_include_tag 'translations' %>
+
     <script type="text/javascript" charset="utf-8">
       I18n.defaultLocale = "<%= I18n.default_locale %>";
       I18n.locale = "<%= I18n.locale %>";
@@ -23,14 +23,17 @@
     </script>
 
     <%= javascript_include_tag 'application' %>
+
     <script type="text/javascript">
       moment.lang(I18n.locale);
     </script>
+
     <%= yield :jsheader %>
 
     <%= csrf_meta_tags %>
-  </head>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
   <body>
     <div id="ember-application" class="main-wrapper"></div>
   </body>

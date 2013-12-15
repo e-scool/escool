@@ -16,7 +16,6 @@
 //= require bootstrap-modal
 
 $(document).ready(function() {
-
   // Hack to disable submit buttons when user clicks
   // $('form').submit(function(){
   //   if (!$(this).hasClass('nodis')) {
@@ -38,7 +37,7 @@ $(document).ready(function() {
   });
 
   // Contact form functionality
-  $('#contact-form').submit(function() {  
+  $('#contact-form').submit(function() {
     var valuesToSubmit = $(this).serialize();
     $.ajax({
         url: $(this).attr('action'), //sumbits it to the given url of the form
@@ -67,5 +66,4 @@ $(document).ready(function() {
       "</div>");
     $('#myModal').modal('show');
   }
-
 });
