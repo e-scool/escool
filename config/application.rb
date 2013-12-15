@@ -82,11 +82,11 @@ module Escool
     config.assets.version = '1.0'
 
     config.to_prepare do
-      Devise::SessionsController.layout "not_logged"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "not_logged" }
-      Devise::ConfirmationsController.layout "not_logged"
-      Devise::UnlocksController.layout "not_logged"
-      Devise::PasswordsController.layout "not_logged"
+      Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? 'application' : 'not_logged' }
+      Devise::SessionsController.layout      'not_logged'
+      Devise::ConfirmationsController.layout 'not_logged'
+      Devise::UnlocksController.layout       'not_logged'
+      Devise::PasswordsController.layout     'not_logged'
     end
 
     config.paths["config/routes"].concat(Dir[Rails.root.join("config/routes/*.rb")])

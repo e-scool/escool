@@ -1,5 +1,4 @@
 module ApplicationHelper
-
 	def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
@@ -27,5 +26,4 @@ module ApplicationHelper
   def admin_remote_request(type, path, target_tag_id, params={})
     "$.#{type}('#{path}', {#{params.collect { |p| "#{p[0]}: #{p[1]}" }.join(", ")}}, function(data) {$('##{target_tag_id}').html(data);});"
   end
-
 end
