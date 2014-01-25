@@ -45,19 +45,3 @@ test:
   pool: 5
   username: postgres
   password:
-
-staging:
-  adapter: postgresql
-  encoding: utf8
-  database: escool_staging
-  pool: 5
-  username: escool
-  password:
-
-production:
-  adapter: postgresql
-  encoding: utf8
-  database: escool_production
-  pool: 5
-  username: escool
-  password:
