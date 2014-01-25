@@ -74,6 +74,7 @@ module Escool
       'website.js',
       'translations.js',
       'active_admin.js',
+      'not_logged.js',
       'ember/app.js'
     ]
     # active_admin/print.css

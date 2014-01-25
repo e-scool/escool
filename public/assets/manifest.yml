@@ -59,6 +59,8 @@ application.js: application.js
 application/index.js: application.js
 ember/app.js: ember/app.js
 ember/app/index.js: ember/app.js
+not_logged.js: not_logged.js
+not_logged/index.js: not_logged.js
 templates/application.js: templates/application.js
 templates/application/index.js: templates/application.js
 translations.js: translations.js
