@@ -1,0 +1,16 @@
+////////////////////////////
+// MIXINS
+////////////////////////////
+
+@mixin border-box { @include box-sizing(border-box); }
+
+@mixin mono-lined($height){
+  height: $height;
+  line-height: $height;
+}
+
+@mixin mono-lined-text($height){
+  height: $height;
+  line-height: $height;
+  font-size: $height;
+}

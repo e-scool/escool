@@ -49,7 +49,7 @@
         </div>
         <div class="buttons">
           {{!-- <button type="button" class="btn cancel" {{action hideModal}}>Cancel·la</button> --}}
-          <button type="submit" class="btn btn-primary">Afegeix</button>
+          <button class="btn btn-primary" {{action addCommunication}}>Afegeix</button>
         </div>
       </form>
       <div class="clearfix"></div>
@@ -57,17 +57,10 @@
   </div>
 {{/if}}
 
-<ul class="items-list">
-  {{#each}}
-    <li class="item">
-      <div class="date">
-        <span class="day">{{day}}</span>
-        <span class="month">{{month}}</span>
-      </div>
-      <div class="content">
-        <p class="title">{{title}}</p>
-        <p class="body">{{body}}</p>
-      </div>
-    </li>
-  {{/each}}
-</ul>
+<table class="list-table">
+  <tbody>
+    {{#each communication in this}}
+      {{view App.CommunicationsIndexRowView contentBiding="communication"}}
+    {{/each}}
+  </tbody>
+</table>

@@ -5,5 +5,11 @@ App.ApplicationRoute = Ember.Route.extend({
   },
   afterModel: function(model) {
     App.set('currentUser', model)
+  },
+
+  actions: {
+    goBack: function() {
+      history.back();
+    }
   }
 });

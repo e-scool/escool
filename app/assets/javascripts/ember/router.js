@@ -2,8 +2,14 @@
 
 App.Router.map(function() {
   this.resource('dashboard', {path: '/'});
-  this.resource('communications');
-  this.resource('materials');
+  this.resource('communications', function() {
+    this.route('index', {path: '/'});
+    this.route('show', {path: '/:communication_id'});
+  });
+  this.resource('materials', function() {
+    this.route('index', {path: '/'});
+    this.route('show', {path: '/:material_id'});
+  });
 });
 
 App.Router.reopen({
