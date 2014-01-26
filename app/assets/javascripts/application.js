@@ -12,18 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-alert
-//= require bootstrap-modal
-//= require bootstrap-dropdown
-//= require bootstrap-datepicker
+//= require bootstrap/alert
+//= require bootstrap/modal
+//= require bootstrap/dropdown
 //= require moment-with-langs.min
 //= require ember/app
-
-$(document).ready(function() {
-  // Initialize bootstrap-datepickers
-  $('#dp-communication, #dp-material').datepicker({
-    language: I18n.locale,
-    autoclose: true,
-    weekStart: 1
-  });
-});

@@ -1,5 +1,3 @@
-@import "bootstrap";
-
 //*******************
 //  Overrides
 //*******************
@@ -42,3 +40,5 @@ p{
 .btn:focus{ outline: none; }
 
 *:focus{ outline: none; }
+
+@import "bootstrap";

@@ -1,6 +1,6 @@
 App.CommunicationsIndexRowView = Ember.View.extend({
   templateName: 'communications/index_row',
-  tagName: 'tr',
+  tagName: 'li',
   classNames: ['communication'],
 
   click: function() {
