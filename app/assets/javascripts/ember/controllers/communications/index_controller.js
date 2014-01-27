@@ -15,7 +15,8 @@ App.CommunicationsIndexController = Ember.ArrayController.extend({
     },
 
     addCommunication: function() {
-      this.transitionToRoute('materials.index');
+      // this.transitionToRoute('communications.index');
+      this.send('hideModal');
     }
   }
 });

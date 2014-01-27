@@ -71,7 +71,7 @@ $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
     background         : #eeeeee;
     width              : $modal-width;
     height             : $modal-height;
-    // margin-top         : -$modal-height/2;
+    margin-top         : -$modal-height/2;
     margin-top         : -20rem;
     margin-left        : -$modal-width/2;
     cursor             : default;
