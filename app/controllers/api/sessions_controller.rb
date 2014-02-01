@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
     end
 
     @user = User.find_first_by_auth_conditions(login: login)
-   
+
     if @user.nil?
       logger.info("User #{login} failed signin, user cannot be found.")
       render status: 401, json: {message: 'Invalid email or passoword.'}
@@ -45,5 +45,4 @@ class Api::SessionsController < ApplicationController
       render status: 200, json: {token: params[:id]}
     end
   end
-
 end

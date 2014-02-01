@@ -8,6 +8,9 @@ class DashboardController < ApplicationController
   def index
   end
 
+  #
+  # Fixme: This should be remove from here and use Ember for that.
+  #
   def update_current_child
     if current_user.children.pluck(:id).include?(params[:child_id].to_i)
       current_user.update_attribute(:current_child, Child.find(params[:child_id]))
@@ -16,6 +19,9 @@ class DashboardController < ApplicationController
     redirect_to dashboard_path
   end
 
+  #
+  # Fixme: This should be remove from here and use Ember for that.
+  #
   def update_current_classroom
     if current_user.classrooms.pluck(:id).include?(params[:classroom_id].to_i)
       current_user.update_attribute(:current_classroom, Classroom.find(params[:classroom_id]))

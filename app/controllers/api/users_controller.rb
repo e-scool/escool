@@ -16,5 +16,4 @@ class Api::UsersController < Api::BaseController
       @user.type = type
     end
   end
-
 end

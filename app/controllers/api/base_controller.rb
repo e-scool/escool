@@ -41,4 +41,17 @@ class Api::BaseController < ActionController::Base
     current_user.current_classroom
   end
 
+  # Public: Before filter used to block some actions to non-Parents.
+  #
+  # Returns nothing.
+  def current_user_is_parent
+    return head :unprocessable_entity unless current_user.is_parent?
+  end
+
+  # Public: Before filter used to block some actions to Parents.
+  #
+  # Returns nothing.
+  def current_user_is_not_parent
+    return head :unprocessable_entity if current_user.is_parent?
+  end
 end

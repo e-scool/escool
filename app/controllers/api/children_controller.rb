@@ -1,11 +1,7 @@
 class Api::ChildrenController < Api::BaseController
+  before_filter :current_user_is_parent
 
   def index
-    if current_user.parent?
-      @children = current_user.children.all
-    else
-      render status: 404, json: {message: 'Invalid token.'}
-    end
+    @children = current_user.children
   end
-
 end
