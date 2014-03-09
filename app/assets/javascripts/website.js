@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap/transition
-//= require bootstrap/modal
 
 $(document).ready(function() {
   // Hack to disable submit buttons when user clicks

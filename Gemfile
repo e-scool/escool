@@ -55,7 +55,6 @@ gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'devise'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.0.3.0'
 
 gem 'ember-rails'
-gem 'ember-source', '~> 1.3.1.1'
+gem 'ember-source', '~> 1.4.0'

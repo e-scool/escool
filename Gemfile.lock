@@ -50,8 +50,6 @@ GEM
       execjs
       handlebars-source
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (3.0.3.0)
-      sass (~> 3.2)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -92,8 +90,8 @@ GEM
       handlebars-source
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.3.1.1)
-      handlebars-source (~> 1.2.1)
+    ember-source (1.4.0)
+      handlebars-source (~> 1.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -102,7 +100,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     fssm (0.2.10)
-    handlebars-source (1.2.1)
+    handlebars-source (1.3.0)
     has_scope (0.5.1)
     hike (1.2.3)
     i18n (0.6.1)
@@ -212,13 +210,12 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
-  bootstrap-sass (~> 3.0.3.0)
   coffee-rails (~> 3.2.1)
   compass-rails
   devise
   draper
   ember-rails
-  ember-source (~> 1.3.1.1)
+  ember-source (~> 1.4.0)
   i18n-js
   jbuilder
   jquery-rails
