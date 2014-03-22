@@ -1,12 +1,12 @@
 {{#if App.currentUser.isTeacher}}
   <div class="action-buttons">
-    <button class="btn btn-primary" type="button" {{action showModal}}><i class="glyphicon glyphicon-plus"></i> Nova comunicació</button>
+    <button class="btn btn-primary" type="button" {{action "showModal"}}><i class="glyphicon glyphicon-plus"></i> Nova comunicació</button>
   </div>
   <div class="modal-wrapper">
-    <div class="modal-overlay" {{action hideModal}}>
+    <div class="modal-overlay" {{action "hideModal"}}>
     </div>
     <div class="modal-content form">
-      <button class="close-modal" {{action hideModal}}></button>
+      <button class="close-modal" {{action "hideModal"}}></button>
       <p class="title">{{t 'forms.communications.titles.new'}}</p>
       <form>
         <div class="control-group half left">
@@ -48,8 +48,8 @@
           </div>
         </div>
         <div class="buttons">
-          {{!-- <button type="button" class="btn cancel" {{action hideModal}}>Cancel·la</button> --}}
-          <button class="btn btn-primary" {{action addCommunication}}>Afegeix</button>
+          {{!-- <button type="button" class="btn cancel" {{action "hideModal"}}>Cancel·la</button> --}}
+          <button class="btn btn-primary" {{action "addCommunication"}}>Afegeix</button>
         </div>
       </form>
       <div class="clearfix"></div>
