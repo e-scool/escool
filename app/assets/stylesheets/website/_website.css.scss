@@ -82,8 +82,8 @@ body {
         text-decoration: none;
         border-bottom: 1px solid $orange;
         &:hover {
-          color: #ff7700;
-          border-bottom: 1px solid #ff7700;
+          color: $dark_orange;
+          border-bottom: 1px solid $dark_orange;
         }
       }
       &#que-es {

@@ -23,7 +23,7 @@
       height: 180px;
       display: block;
       text-align: center;
-      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops(#f9b951, $orange), center center));
+      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops($light_orange, $orange), center center));
     }
 
     .sidebar-menu{
