@@ -2,7 +2,7 @@
 //= require ember
 //= require ember-data
 
-//= require_self
+//= require ./init_app
 
 //= require ./store
 //= require ./router
@@ -14,10 +14,3 @@
 //= require_tree ./views
 //= require_tree ./helpers
 //= require_tree ./components
-
-(function (exports) {
-  exports.App = Ember.Application.create({
-    rootElement: '#ember-application',
-    LOG_TRANSITIONS: true
-  });
-})(window);
