@@ -1,1 +1,3 @@
-json.partial! 'api/communications/communication', communication: @communication
+json.communication do
+  json.partial! @communication
+end

@@ -1,1 +1,3 @@
-json.partial! 'api/materials/material', material: @material
+json.material do
+  json.partial! @material
+end
