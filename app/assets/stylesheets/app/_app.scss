@@ -23,7 +23,7 @@
       height: 180px;
       display: block;
       text-align: center;
-      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops($light_orange, $orange), center center));
+      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops($light-orange, $orange), center center));
     }
 
     .sidebar-menu{
@@ -40,7 +40,7 @@
         font-family: 'Scada', sans-serif;
         color: #666;
 
-        @each $section in $app_sections {
+        @each $section in $app-sections {
           &.#{$section} {
             $image: 'icons/#{$section}-mini.png';
             background: image-url($image) no-repeat;
@@ -89,7 +89,7 @@
         color: $orange;
         font-family: 'Scada', sans-serif;
 
-        @each $section in $app_sections {
+        @each $section in $app-sections {
           &.#{$section} {
             $image: 'icons/#{$section}.png';
             background: image-url($image) no-repeat top left;

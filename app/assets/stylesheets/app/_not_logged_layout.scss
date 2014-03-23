@@ -1,8 +1,8 @@
-body {
+body{
   padding: 0;
 }
 
-.not-logged-wrapper {
+.not-logged-wrapper{
   width: 90%;
   height: 100%;
   position: fixed;
@@ -10,37 +10,45 @@ body {
   color: #ffffff;
   overflow: scroll;
   @include single-text-shadow(#000);
-  @include background(radial-gradient(color-stops($light_orange, $orange), center center));
-  a.logo {
+  @include bg-radial-light-orange-to-orange;
+
+  a.logo{
     width: 143px;
     margin: 10% auto 0 auto;
     display: block;
   }
-  .not-logged-container {
+
+  .not-logged-container{
     margin: 0 auto 5% auto;
     padding: 30px;
     max-width: 280px;
-    .alert {
+
+    .alert{
       margin: 0 0 20px 0;
     }
-    .title {
+
+    .title{
       margin: 0 0 14px 0;
       font-size: 20px;
       font-family: 'Scada', sans-serif;
     }
-    .form-inputs {
+
+    .form-inputs{
       margin: 10px 0 0 0;
       @include clearfix;
-      label {
+
+      label{
         font-size: 14px;
         line-height: 14px;
         font-family: 'Scada', sans-serif;
       }
-      input#user_remember_me {
+
+      input#user_remember_me{
         float: left;
         margin: 3px 6px 0 0;
       }
-      .btn {
+
+      .btn{
         float: right;
         padding: 5px 18px;
         font-family: 'Scada', sans-serif;

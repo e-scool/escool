@@ -1,8 +1,12 @@
-////////////////////////////
-// MIXINS
-////////////////////////////
+////////////
+//
+//  MIXINS
+//
+////////////
 
-@mixin border-box { @include box-sizing(border-box); }
+@mixin border-box{
+  @include box-sizing(border-box);
+}
 
 @mixin mono-lined($height){
   height: $height;
@@ -13,4 +17,32 @@
   height: $height;
   line-height: $height;
   font-size: $height;
+}
+
+// POSITION
+@mixin absolute-top-left($top:0, $left:0){
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: auto;
+  bottom: auto;
+}
+
+// BACKGROUNDS
+@mixin bg-linear-light-orange-to-orange{
+  @include background-image(linear-gradient(top, $light-orange, $orange));
+}
+
+@mixin bg-linear-light-orange-to-orange-darken{
+  @include background-image(linear-gradient(top, darken($light-orange, 8%), darken($orange, 8%)));
+}
+
+@mixin bg-linear-orange-to-dark-orange{
+  background: $orange; /* Old browsers */
+  @include background-image(linear-gradient(top, $orange, $dark-orange));
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$orange', endColorstr='$dark-orange',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin bg-radial-light-orange-to-orange{
+  @include background(radial-gradient(color-stops($light-orange, $orange), center center));
 }

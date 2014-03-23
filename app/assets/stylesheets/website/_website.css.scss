@@ -1,46 +1,55 @@
-body {
+body{
   padding-top: 40px;
   background: image-url('bg.png') repeat;
 }
 
-#wrapper-content {
+#wrapper-content{
   width: 960px;
   margin: 0 auto;
   background: #fff;
   border: 1px solid #EEE;
   @include box-shadow(0 0 10px #CCC);
-  #header {
+
+  #header{
     width: 880px;
     padding: 30px 40px 0 40px;
     font-family: 'Indie Flower', cursive;
-    a.logo {
+
+    a.logo{
       float: left;
-      img {
+
+      img{
         display: block;
       }
     }
-    ul {
-      &#right-menu {
+
+    ul{
+      &#right-menu{
         float: right;
         margin: 30px 0 0 0;
       }
-      &#main-menu {
+
+      &#main-menu{
         float: left;
         margin: 30px 0 0 20px;
       }
-      li {
+
+      li{
         float: left;
         display: inline-block;
-        a {
+
+        a{
           float: left;
           color: #000;
           text-decoration: none;
           font-size: 18px;
-          &:hover, &.active {
+
+          &:hover, &.active{
             color: $orange;
           }
         }
-        span.sep {
+
+        span.sep{
           float: left;
           color: $orange;
           padding: 0 8px;
@@ -49,20 +58,23 @@ body {
       }
     }
   }
-  #content {
+
+  #content{
     width: 880px;
     padding: 0 40px;
     margin: 0 auto;
     font-size: 13px;
     font-family: 'Actor', sans-serif;
     color: #000;
-    .content-left {
+
+    .content-left{
       float: left;
       width: 520px;
       height: 287px;
       margin: -20px 0 0 60px;
       padding: 60px 35px 30px 35px;
-      h2 {
+
+      h2{
         color: $orange;
         font-size: 18px;
         line-height: 18px;
@@ -70,105 +82,117 @@ body {
         margin: 0;
         font-family: 'Indie Flower', cursive;
       }
-      p {
+
+      p{
         line-height: 125%;
         margin: 15px 0 0 0;
-        span.orange {
+
+        span.orange{
           color: $orange;
         }
       }
-      a {
+
+      a{
         color: $orange;
         text-decoration: none;
         border-bottom: 1px solid $orange;
-        &:hover {
-          color: $dark_orange;
-          border-bottom: 1px solid $dark_orange;
+
+        &:hover{
+          color: $dark-orange;
+          border-bottom: 1px solid $dark-orange;
         }
       }
-      &#que-es {
-        background: url("/assets/website/bg-box-quees.png") no-repeat center center;
+
+      $site-sections: que-es, objectius, qui-som, contacte;
+
+      @each $section in $site-sections{
+        &.#{$section}{ background: image-url("/assets/website/bg-box-#{$section}.png") no-repeat center center;}
       }
-      &#objectius {
-        background: url("/assets/website/bg-box-objectius.png") no-repeat center center;
-      }
-      &#qui-som {
-        background: url("/assets/website/bg-box-quisom.png") no-repeat center center;
-      }
-      &#contacte {
-        background: url("/assets/website/bg-box-contacte.png") no-repeat center center;
-        form#contact-form {
-          width: 390px;
-          margin: 20px 0 0 0;
-          .form-group {
+
+      #contacte form#contact-form{
+        width: 390px;
+        margin: 20px 0 0 0;
+
+        .form-group{
+          margin: 6px 0 0 0;
+
+          label{
+            float: left;
+            width: 70px;
             margin: 6px 0 0 0;
-            label {
-              float: left;
-              width: 70px;
-              margin: 6px 0 0 0;
-              font-size: 13px;
-              line-height: 13px;
+            font-size: 13px;
+            line-height: 13px;
+          }
+
+          input[type=text], textarea{
+            float: right;
+            padding: 6px 8px;
+            font-size: 13px;
+            line-height: 14px;
+            border: 1px solid $orange;
+            @include border-radius(15px);
+
+            &:focus{
+              outline: none;
             }
-            input[type=text], textarea {
-              float: right;
-              padding: 6px 8px;
-              font-size: 13px;
-              line-height: 14px;
-              border: 1px solid $orange;
-              @include border-radius(15px);
-              &:focus {
-                outline: none;
-              }
-            }
-            input[type=text] {
-              width: 200px;
-              height: 13px;
-              margin: 0 100px 0 0;
-            }
-            textarea {
-              width: 300px;
-              margin: 0;
-              resize: none;
-            }
-            input[type=submit]{
-              float: right;
-              margin: 0;
-              padding: 8px 14px;
-              color: #fff;
-              background: $orange;
-              font-size: 13px;
-              line-height: 13px;
-              border: none;
-              cursor: pointer;
-              @include border-radius(15px);
-            }
+          }
+
+          input[type=text]{
+            width: 200px;
+            height: 13px;
+            margin: 0 100px 0 0;
+          }
+
+          textarea{
+            width: 300px;
+            margin: 0;
+            resize: none;
+          }
+
+          input[type=submit]{
+            float: right;
+            margin: 0;
+            padding: 8px 14px;
+            color: #fff;
+            background: $orange;
+            font-size: 13px;
+            line-height: 13px;
+            border: none;
+            cursor: pointer;
+            @include border-radius(15px);
           }
         }
       }
     }
-    .content-right {
+
+    .content-right{
       float: right;
       width: 213px;
       height: 200px;
       margin: 30px -10px 0 0;
       position: relative;
-      background: url("/assets/website/bg-social.png") no-repeat center center;
-      #social-links {
+      background: image-url("/assets/website/bg-social.png") no-repeat center center;
+
+      #social-links{
         margin: 25px;
         font-family: 'Indie Flower', cursive;
-        p {
+
+        p{
           font-size: 18px;
           margin: 0;
         }
-        a {
+
+        a{
           float: left;
           margin: 10px 0 0 0;
-          img {
+
+          img{
             float: left;
           }
         }
       }
-      span {
+
+      span{
         position: absolute;
         bottom: 14px;
         right: 30px;
@@ -177,20 +201,21 @@ body {
       }
     }
   }
-  #wrapper-footer {
+
+  #wrapper-footer{
     padding: 15px 0;
     margin: 40px 0 0 0;
     width: 960px;
-    background: $orange; /* Old browsers */
-    @include background-image(linear-gradient(top, $orange, $dark_orange));
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$orange', endColorstr='$dark_orange',GradientType=1 ); /* IE6-9 */
-    #footer {
+    @include bg-linear-orange-to-dark-orange;
+
+    #footer{
       max-width: 960px;
       margin: 0 auto;
       color: #fff;
       font-family: 'Indie Flower', cursive;
       font-size: 14px;
-      p {
+
+      p{
         margin: 0;
         line-height: 14px;
         text-align: center;
@@ -199,4 +224,4 @@ body {
   }
 }
 
-.clear { clear: both; visibility: hidden; height: 0; }
+.clear{ clear: both; visibility: hidden; height: 0; }

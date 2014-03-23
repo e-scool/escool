@@ -2,9 +2,15 @@
 //  SASS Config
 //*******************
 
-$app_sections: dashboard, communications, materials;
+$app-sections: dashboard, communications, materials;
 
-// Colors
+////////////
+//
+//  COLOR PALETTE
+//
+////////////
+
+// ORANGES
 $orange      : #ff9b40;
-$light_orange: #f9b951;
-$dark_orange : #ff7700;
+$light-orange: #f9b951;
+$dark-orange : #ff7700;

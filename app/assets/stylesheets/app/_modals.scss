@@ -104,18 +104,10 @@ $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
       border-bottom: 1px solid #AAA;
       border-top: none;
       border-right: none;
-      @include background-image(linear-gradient(top, $light-orange, $orange));
+      @include bg-linear-light-orange-to-orange;
 
       &:hover{
-        @include background-image(linear-gradient(top, darken($light-orange, 8%), darken($orange, 8%)));
-      }
-
-      @mixin absolute-top-left ($top:0, $left:0){
-        position : absolute;
-        top      : $top;
-        left     : $left;
-        right    : auto;
-        bottom   : auto;
+        @include bg-linear-light-orange-to-orange-darken;
       }
 
       &:after{
