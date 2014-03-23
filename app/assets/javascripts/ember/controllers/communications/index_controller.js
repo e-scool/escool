@@ -2,21 +2,16 @@ App.CommunicationsIndexController = Ember.ArrayController.extend({
   itemController: 'communication',
 
   actions: {
-    showModal: function() {
-      $('.modal-wrapper').addClass('visible');
-      $('.modal-content').addClass('visible');
-      $('.modal-overlay').css('opacity', '1');
+    showNewForm: function() {
+      this.set('newFormDisplayed', true);
     },
 
-    hideModal: function() {
-      $('.modal-overlay').css('opacity', '0');
-      $('.modal-content').removeClass('visible');
-      $('.modal-wrapper').removeClass('visible');
+    hideNewForm: function() {
+      this.set('newFormDisplayed', false);
     },
 
-    addCommunication: function() {
-      // this.transitionToRoute('communications.index');
-      this.send('hideModal');
+    saveCommunication: function() {
+
     }
   }
 });

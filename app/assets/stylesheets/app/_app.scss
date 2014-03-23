@@ -6,6 +6,10 @@
   outline: none;
 }
 
+body{
+  font-family: 'Scada', sans-serif;
+}
+
 .main-wrapper{
   position: fixed;
   width: 100%;
@@ -76,7 +80,7 @@
       padding: 18px 30px;
       border-bottom: 1px solid #ddd;
       position: relative;
-      @include background-image(linear-gradient(top, #f8f8f8, #f3f3f3));
+      @include bg-linear-nearly-white-to-lightest-gray;
       @include clearfix;
 
       .title{
@@ -87,7 +91,6 @@
         line-height: 29px;
         font-size: 24px;
         color: $orange;
-        font-family: 'Scada', sans-serif;
 
         @each $section in $app-sections {
           &.#{$section} {
@@ -97,7 +100,7 @@
         }
 
         .subtitle{
-          color: #333;
+          color: $darker-gray;
         }
       }
 

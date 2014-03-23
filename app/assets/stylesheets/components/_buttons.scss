@@ -5,23 +5,33 @@
 ////////////
 
 .btn{
-  min-width: 4rem;
+  min-width: 3.2rem;
   padding: 0.4rem 0.7rem;
   @include mono-lined-text(0.8rem);
   @include box-sizing(content-box);
   border-style: solid;
   border-width: $default-border-width;
-  border-radius: $default-border-radius;
+  border-radius: $small-border-radius;
   cursor: pointer;
 
   &.btn-orange{
     color: white;
-    border-color: $orange;
-    @include bg-linear-light-orange-to-orange;
+    border-color: $dark-orange;
+    @include bg-linear-light-orange-to-orange-darken;
 
     &:hover{
-      @include bg-linear-light-orange-to-orange-darken;
-      border-color: $dark-orange;
+      border-color: $orange;
+      @include bg-linear-light-orange-to-orange;
+    }
+  }
+
+  &.btn-gray{
+    color: $darker-gray;
+    border-color: $light-gray;
+    @include bg-linear-white-to-lighter-gray;
+
+    &:hover{
+
     }
   }
 }

@@ -3,3 +3,63 @@
 //  FORMS
 //
 ////////////
+
+.form-wrapper{
+  max-width: 40rem;
+  min-width: 30rem;
+  margin: 0 auto;
+  border: $default-border-width solid $lighter-gray;
+  border-radius: $default-border-radius;
+  @include box-shadow(0 0 1.6rem #DDD);
+
+  .form-fields{
+    display: block;
+    padding: 2rem 2rem;
+    position: relative;
+    background: $nearly-white;
+    border-top-left-radius: $default-border-radius;
+    border-top-right-radius: $default-border-radius;
+
+    .field-group{
+      &:not(:last-of-type){
+        margin-bottom: 0.8rem;
+      }
+
+      .label{
+        width: 5rem;
+        float: left;
+        padding-top: 0.5rem;
+        text-align: right;
+        font-weight: bold;
+        color: $darker-gray;
+      }
+
+      .input-wrapper{
+        display: block;
+        padding-left: 6rem;
+
+        input, textarea{
+          display: block;
+          width: 100%;
+          padding: 0.4rem 0.7rem;
+          border: $default-border-width solid $lighter-gray;
+          border-radius: $small-border-radius;
+          font-size: 0.8rem;
+          @include box-sizing(border-box);
+        }
+
+        textarea{
+          min-height: 4rem;
+        }
+      }
+    }
+  }
+
+  .bottom-bar{
+    display: block;
+    padding: 1.2rem;
+    background: white;
+    border-bottom-left-radius: $default-border-radius;
+    border-bottom-right-radius: $default-border-radius;
+  }
+}

@@ -1,67 +1,47 @@
 {{#if App.currentUser.isTeacher}}
-  <div class="action-buttons">
-    <button class="btn btn-orange" {{action "showModal"}}>
-      <i class="btn-add"></i>
-      {{t 'forms.communications.new'}}
-    </button>
-  </div>
-  <div class="modal-wrapper">
+  {{#unless newFormDisplayed}}
+    <div class="action-buttons">
+      <button class="btn btn-orange" {{action "showNewForm"}}>
+        <i class="btn-add"></i>
+        {{t 'forms.communications.new'}}
+      </button>
+    </div>
+  {{/unless}}
+
+  {{#if newFormDisplayed}}
+    <div class="form-wrapper communication">
+      <div class="form-fields">
+        <div class="field-group">
+          <label class="label">Títol:</label>
+          <div class="input-wrapper">
+            {{input type="text" value=title}}
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="label">Text:</label>
+          <div class="input-wrapper">
+            {{textarea value=body}}
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <button class="btn btn-orange" {{action "saveCommunication"}}>Afegeix</button>
+        <button class="btn btn-gray" {{action "hideNewForm"}}>Cancelar</button>
+      </div>
+    </div>
+  {{/if}}
+  {{!-- <div class="modal-wrapper">
     <div class="modal-overlay" {{action "hideModal"}}>
     </div>
     <div class="modal-content form">
       <button class="close-modal" {{action "hideModal"}}></button>
-      <p class="title">{{t 'forms.communications.titles.new'}}</p>
-      <form>
-        <div class="control-group half left">
-          <label class="control-label" for="quan">Data</label>
-          <div class="controls">
-            <div class="input-append date" id="dp-communication" data-date-format="dd-mm-yyyy">
-              <input class="span2" size="16" type="text" id="date">
-              <button type="button" class="btn"><i class="icon-calendar"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="control-group half right">
-          <label class="control-label" for="subject">Assignatura</label>
-          <div class="controls">
-            <select id="subject">
-              <option value="1">Test Subject</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="children">Alumnes</label>
-          <div class="controls">
-            <select id="children" multiple="multiple">
-              <option value="1">Test Child 1</option>
-              <option value="2">Test Child 2</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="title">Títol</label>
-          <div class="controls">
-            <input type="text" id="title" class="input-block-level">
-          </div>
-        </div>
-        <div class="control-group">
-          <label class="control-label" for="body">Text</label>
-          <div class="controls">
-            <textarea id="body" rows="5" class="input-block-level"></textarea>
-          </div>
-        </div>
-        <div class="buttons">
-          {{!-- <button type="button" class="btn cancel" {{action "hideModal"}}>Cancel·la</button> --}}
-          <button class="btn btn-primary" {{action "addCommunication"}}>Afegeix</button>
-        </div>
-      </form>
+
+
       <div class="clearfix"></div>
     </div>
-  </div>
+  </div> --}}
 {{/if}}
 
 <ul class="list basic">
-  {{#each communication in this}}
-    {{view App.CommunicationsIndexRowView contentBinding="communication"}}
-  {{/each}}
+  {{each itemViewClass="App.CommunicationsIndexRowView"}}
 </ul>

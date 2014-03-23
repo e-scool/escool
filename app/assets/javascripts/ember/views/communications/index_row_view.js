@@ -4,6 +4,6 @@ App.CommunicationsIndexRowView = Ember.View.extend({
   classNames: ['communication'],
 
   click: function() {
-    this.get('controller').send('showDetails');
+    this.get('controller').send('goToShow');
   }
 });

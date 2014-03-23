@@ -11,9 +11,16 @@ $app-sections: dashboard, communications, materials;
 ////////////
 
 // ORANGES
-$orange      : #ff9b40;
 $light-orange: #f9b951;
+$orange      : #ff9b40;
 $dark-orange : #ff7700;
+
+// GRAYS
+$nearly-white : #F8F8F8;
+$lightest-gray: #F3F3F3;
+$lighter-gray : #E1E1E1;
+$light-gray   : #D1D1D1;
+$darker-gray  : #333333;
 
 ////////////
 //
@@ -22,5 +29,6 @@ $dark-orange : #ff7700;
 ////////////
 
 // BORDERS
-$default-border-width: 0.1rem;
-$default-border-radius: 0.3rem;
+$default-border-width : 0.1rem;
+$small-border-radius: 0.3rem;
+$default-border-radius: 0.6rem;

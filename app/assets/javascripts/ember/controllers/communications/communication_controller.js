@@ -1,6 +1,6 @@
 App.CommunicationController = Ember.ObjectController.extend({
   actions: {
-    showDetails: function() {
+    goToShow: function() {
       this.transitionToRoute('communications.show', this.get('id'));
     }
   }
