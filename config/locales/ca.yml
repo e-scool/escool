@@ -38,7 +38,7 @@ ca:
     teacher: "Docents"
   forms:
     communications:
-      titles:
-        new: 'Nova comunicació'
+      new: 'Nova comunicació'
   login: "Iniciar sessió"
   close: "Tancar"
+  go_back: "Tornar"

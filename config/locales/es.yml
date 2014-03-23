@@ -38,7 +38,7 @@ es:
     teacher: "Docentes"
   forms:
     communications:
-      titles:
-        new:'Nueva comunicación'
+      new:'Nueva comunicación'
   login: "Inicia sessión"
   close: "Cerrar"
+  go_back: "Atrás"

@@ -55,6 +55,4 @@
       });
     }
   });
-
-  // App.deferReadiness();
 })(window);

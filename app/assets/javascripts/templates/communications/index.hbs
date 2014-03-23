@@ -1,6 +1,9 @@
 {{#if App.currentUser.isTeacher}}
   <div class="action-buttons">
-    <button class="btn btn-primary" type="button" {{action "showModal"}}><i class="glyphicon glyphicon-plus"></i> Nova comunicació</button>
+    <button class="btn btn-orange" {{action "showModal"}}>
+      <i class="btn-add"></i>
+      {{t 'forms.communications.new'}}
+    </button>
   </div>
   <div class="modal-wrapper">
     <div class="modal-overlay" {{action "hideModal"}}>

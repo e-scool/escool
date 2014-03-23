@@ -1,0 +1,27 @@
+////////////
+//
+//  BUTTONS
+//
+////////////
+
+.btn{
+  min-width: 4rem;
+  padding: 0.4rem 0.7rem;
+  @include mono-lined-text(0.8rem);
+  @include box-sizing(content-box);
+  border-style: solid;
+  border-width: $default-border-width;
+  border-radius: $default-border-radius;
+  cursor: pointer;
+
+  &.btn-orange{
+    color: white;
+    border-color: $orange;
+    @include bg-linear-light-orange-to-orange;
+
+    &:hover{
+      @include bg-linear-light-orange-to-orange-darken;
+      border-color: $dark-orange;
+    }
+  }
+}

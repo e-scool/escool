@@ -1,0 +1,23 @@
+////////////
+//
+//  ICONS
+//
+////////////
+
+i{
+  &.btn-add{
+    &:before{
+      content: '+';
+      font-size: 1rem;
+      color: white;
+    }
+  }
+
+  &.btn-back{
+    &:before{
+      content: '<';
+      font-size: 1rem;
+      color: white;
+    }
+  }
+}
