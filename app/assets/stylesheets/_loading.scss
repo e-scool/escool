@@ -1,0 +1,8 @@
+.common-loading{
+  text-align: center;
+  @include ui-spinner(#fff, 60px, #EEE, $orange, 0.9, 2s);
+
+  .ui-spinner{
+    display: inline-block;
+  }
+}
