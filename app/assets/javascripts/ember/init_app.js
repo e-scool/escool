@@ -64,7 +64,14 @@
 
     afterRenderEvent: function() {
       // Set jQuery Datepicker form inputs.
-      $('.input-date').datepicker();
+      $('.input-date').datepicker({
+        beforeShow: function (textbox, instance) {
+          instance.dpDiv.css({
+            marginTop: (-textbox.offsetHeight) + 'px',
+            marginLeft: textbox.offsetWidth + 4 + 'px'
+          });
+        }
+      });
     }
   });
 })(window);

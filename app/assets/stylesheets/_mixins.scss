@@ -43,8 +43,8 @@
   @include background-image(linear-gradient(top, $light-orange, $orange));
 }
 
-@mixin bg-linear-light-orange-to-orange-darken{
-  @include background-image(linear-gradient(top, darken($light-orange, 8%), darken($orange, 8%)));
+@mixin bg-linear-light-orange-darken-to-orange-darken{
+  @include background-image(linear-gradient(top, $light-orange-darken, $orange-darken));
 }
 
 @mixin bg-linear-orange-to-dark-orange{

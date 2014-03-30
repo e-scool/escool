@@ -1,0 +1,134 @@
+$ui-icons-url: 'ui-icons_ffffff_256x240.png';
+
+.ui-datepicker{
+  font-size: 1rem;
+  padding: 0;
+
+  &.ui-widget{
+    font-family: Helvetica Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+  }
+
+  &.ui-widget-content{
+    border: none;
+    background: #fff;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.19);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.19);
+    box-shadow: 0 1px 3px rgba(0,0,0,.19);
+  }
+
+  .ui-datepicker-header{
+    font-family: "Myriad Pro", sans-serif;
+    color: #fff;
+    padding: 0;
+    border: 1px solid $orange;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 $orange;
+    border-radius: 4px 4px 0 0;
+    @include bg-linear-light-orange-to-orange;
+
+    .ui-state-hover{
+      background: transparent;
+      border-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .ui-datepicker-title{
+    line-height: 1.9rem;
+    font-weight: normal;
+  }
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next{
+    top: -1px;
+    border-radius: 0;
+    font-weight: normal;
+    border: none;
+    height: 1.9rem;
+    width: 1.9rem;
+
+    &, &.ui-state-hover{ @include bg-linear-light-orange-darken-to-orange-darken; }
+  }
+
+  .ui-datepicker-prev, .ui-datepicker-prev.ui-state-hover{
+    left: 0;
+    border-right: 1px solid $orange;
+  }
+
+  .ui-datepicker-next, .ui-datepicker-next.ui-state-hover{
+    right: 0;
+    border-left: 1px solid $orange;
+  }
+
+  .ui-datepicker-prev span,
+  .ui-datepicker-next span{
+    margin-top: -4px;
+    top: 40%;
+  }
+
+  .ui-icon-circle-triangle-e{
+    background-image: url($ui-icons-url);
+    background-position: -32px 0;
+  }
+
+  .ui-icon-circle-triangle-w{
+    background-image: url($ui-icons-url);
+    background-position: -96px 0;
+  }
+
+  table{
+    margin: 0;
+
+    &.ui-datepicker-calendar{
+      th{
+        padding: .6em 0 .4em;
+        text-transform: uppercase;
+        color: #bbb;
+        font-family: "Myriad Pro";
+        font-weight: normal;
+        font-size: .8em;
+        border-top: 1px solid #e6e6e6;
+      }
+
+      td{
+        border: none;
+        border-top: 1px solid #e6e6e6;
+        border-right: 1px solid #e6e6e6;
+        padding: 0;
+
+        &:last-child{
+          border-right: 0;
+        }
+
+        a{
+          line-height: 1.1rem;
+          height: 1rem;
+          padding: 0.35rem 0;
+
+          &.ui-state-default{
+            background: transparent;
+            border: none;
+            color: #2b2b2b;
+            margin: 0;
+            font-family: "Myriad Pro", sans-serif;
+            font-weight: normal;
+            text-align: center;
+          }
+
+          &.ui-state-hover{
+            color: white;
+            @include bg-linear-light-orange-to-orange;
+          }
+
+          &.ui-state-active,
+          &.ui-state-active.ui-state-hover{
+            color: white;
+            text-shadow: 0 -1px 0 $orange;
+            @include bg-linear-light-orange-to-orange;
+          }
+        }
+      }
+    }
+  }
+}

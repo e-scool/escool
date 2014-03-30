@@ -17,7 +17,7 @@
   &.btn-orange{
     color: white;
     border-color: $dark-orange;
-    @include bg-linear-light-orange-to-orange-darken;
+    @include bg-linear-light-orange-darken-to-orange-darken;
 
     &:hover{
       border-color: $orange;

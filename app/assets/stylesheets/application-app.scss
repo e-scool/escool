@@ -1,10 +1,11 @@
 @import "compass";
 @import "compass/reset";
-@import "lib/ui-spinner";
 @import "jquery.ui.datepicker";
 @import "config";
 @import "mixins";
 @import "components";
-@import "loading";
+@import "lib/ui-spinner";
+@import "lib/jquery_ui_custom";
 
+@import "loading";
 @import "app/app";

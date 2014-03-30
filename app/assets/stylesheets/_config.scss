@@ -11,9 +11,11 @@ $app-sections: dashboard, communications, materials;
 ////////////
 
 // ORANGES
-$light-orange: #f9b951;
-$orange      : #ff9b40;
-$dark-orange : #ff7700;
+$light-orange       : #f9b951;
+$light-orange-darken: darken($light-orange, 8%);
+$orange             : #ff9b40;
+$orange-darken      : darken($orange, 8%);
+$dark-orange        : #ff7700;
 
 // GRAYS
 $nearly-white : #F8F8F8;

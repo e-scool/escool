@@ -107,7 +107,7 @@ $ease-cubic-out        : cubic-bezier(0.215, 0.610, 0.355, 1.000);
       @include bg-linear-light-orange-to-orange;
 
       &:hover{
-        @include bg-linear-light-orange-to-orange-darken;
+        @include bg-linear-light-orange-darken-to-orange-darken;
       }
 
       &:after{
