@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require moment-with-langs.min
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-es
+//= require jquery.ui.datepicker-ca
 //= require ember/app

@@ -3,7 +3,7 @@
   width: 100%;
 
   li{
-    $item-height: 7rem;
+    $item-height: 5rem;
     $border-width: 0.1rem;
 
     margin-top: 1rem;
@@ -12,7 +12,7 @@
     font-family: 'Scada', sans-serif;
     color: #666;
     overflow: hidden;
-    @include background-image(linear-gradient(left, #f6f6f6, #e9e9e9));
+    @include bg-linear-white-to-nearly-white;
     cursor: pointer;
 
     // @include box-sizing(content-box);
@@ -22,7 +22,7 @@
     }
 
     &:hover{
-      background: #fff;
+      @include bg-linear-nearly-white-to-lightest-gray;
     }
 
     & > div{
@@ -43,12 +43,12 @@
 
           &.day{
             font-weight: bold;
-            @include mono-lined-text(4rem);
+            @include mono-lined-text(3rem);
           }
 
           &.month{
             text-transform: uppercase;
-            @include mono-lined-text(1.4rem);
+            @include mono-lined-text(1rem);
           }
         }
       }

@@ -58,10 +58,22 @@
 }
 
 // GRAYS
+@mixin bg-linear-white-to-nearly-white{
+  @include background-image(linear-gradient(top, white, $nearly-white));
+}
+
+@mixin bg-linear-white-to-lightest-gray{
+  @include background-image(linear-gradient(top, white, $lightest-gray));
+}
+
 @mixin bg-linear-white-to-lighter-gray{
   @include background-image(linear-gradient(top, white, $lighter-gray));
 }
 
 @mixin bg-linear-nearly-white-to-lightest-gray{
   @include background-image(linear-gradient(top, $nearly-white, $lightest-gray))
+}
+
+@mixin bg-linear-lightest-gray-to-lighter-gray{
+  @include background-image(linear-gradient(top, $lightest-gray, $lighter-gray));
 }

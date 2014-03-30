@@ -6,13 +6,13 @@
 
 .btn{
   min-width: 3.2rem;
-  padding: 0.4rem 0.7rem;
-  @include mono-lined-text(0.8rem);
-  @include box-sizing(content-box);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
   border-style: solid;
   border-width: $default-border-width;
   border-radius: $small-border-radius;
   cursor: pointer;
+  @include box-sizing(content-box);
 
   &.btn-orange{
     color: white;
@@ -31,7 +31,7 @@
     @include bg-linear-white-to-lighter-gray;
 
     &:hover{
-
+      @include bg-linear-white-to-lightest-gray;
     }
   }
 }

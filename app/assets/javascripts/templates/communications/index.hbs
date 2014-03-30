@@ -12,6 +12,18 @@
     <div class="form-wrapper communication">
       <div class="form-fields">
         <div class="field-group">
+          <label class="label">Data:</label>
+          <div class="input-wrapper">
+            {{input value=date class="input-date"}}
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="label">Alumnes:</label>
+          <div class="input-wrapper">
+            {{input value=children}}
+          </div>
+        </div>
+        <div class="field-group">
           <label class="label">Títol:</label>
           <div class="input-wrapper">
             {{input type="text" value=title}}
@@ -25,8 +37,11 @@
         </div>
       </div>
       <div class="bottom-bar">
-        <button class="btn btn-orange" {{action "saveCommunication"}}>Afegeix</button>
-        <button class="btn btn-gray" {{action "hideNewForm"}}>Cancelar</button>
+        <button class="btn btn-orange" {{action "saveCommunication"}}>
+          <i class="btn-add"></i>
+          Afegir
+        </button>
+        <button class="btn btn-gray" {{action "hideNewForm"}}>Cancel·lar</button>
       </div>
     </div>
   {{/if}}

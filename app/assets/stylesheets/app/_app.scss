@@ -21,7 +21,9 @@ body{
     top: 0;
     left: 0;
     width: 240px;
-    background: #eee;
+    background: $nearly-white;
+    border-right: 1px solid $lighter-gray;
+    @include box-shadow(0.1rem 0 1rem 0 rgba(0,0,0,.1));
 
     #logo{
       height: 180px;
@@ -42,7 +44,7 @@ body{
         height: 50px;
         line-height: 50px;
         font-family: 'Scada', sans-serif;
-        color: #666;
+        color: #777;
 
         @each $section in $app-sections {
           &.#{$section} {
@@ -55,10 +57,10 @@ body{
         &.active{
           $border-left: 3px;
           color: #000;
-          background-color: #fff;
-          border-left: $border-left solid $orange;
-          padding-left: $padding-left - $border-left;
-          background-position: (25px - $border-left) center;
+          // background-color: #fff;
+          border-right: $border-left solid $orange;
+          // padding-left: $padding-left - $border-left;
+          // background-position: (25px - $border-left) center;
 
           &:hover{
             color: #000;
@@ -81,6 +83,7 @@ body{
       border-bottom: 1px solid #ddd;
       position: relative;
       @include bg-linear-nearly-white-to-lightest-gray;
+      @include box-shadow(0 0.1rem 1rem 0 rgba(0,0,0,.1));
       @include clearfix;
 
       .title{
@@ -130,7 +133,7 @@ body{
     }
 
     #content{
-      padding: 40px;
+      padding: 2.4rem;
     }
   }
 }
