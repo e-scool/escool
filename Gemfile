@@ -49,6 +49,7 @@ gem 'jquery-ui-rails', '~> 4.2.0'
 
 gem 'draper'
 gem 'jbuilder'
+gem 'strong_parameters'
 
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
