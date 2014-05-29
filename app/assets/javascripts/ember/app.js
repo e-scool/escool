@@ -4,6 +4,7 @@
 
 //= require ./init_app
 
+//= require_tree ./config
 //= require ./store
 //= require ./router
 //= require_tree ./routes
