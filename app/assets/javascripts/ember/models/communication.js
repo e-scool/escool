@@ -5,10 +5,10 @@ App.Communication = DS.Model.extend({
 
   // Properties
   day: function(){
-    return moment(new Date(this.get('date'))).format("DD");
+    return moment(this.get('date')).format('DD');
   }.property(),
 
   month: function(){
-    return moment(new Date(this.get('date'))).format("MMMM");
+    return moment(this.get('date')).format('MMMM');
   }.property(),
 });
