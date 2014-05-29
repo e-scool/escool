@@ -1,5 +1,7 @@
 <div id="logo"></div>
 
-{{#each section in App.activeSections}}
-  {{#link-to section class=section}}{{sectionName section}}{{/link-to}}
-{{/each}}
+<div class="sidebar-menu">
+  {{#each section in App.activeSections}}
+    {{#link-to section class=section}}{{sectionName section}}{{/link-to}}
+  {{/each}}
+</div>

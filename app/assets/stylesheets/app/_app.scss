@@ -10,130 +10,134 @@ body{
   font-family: 'Scada', sans-serif;
 }
 
-.main-wrapper{
-  position: fixed;
-  width: 100%;
+$sidebar-width: 240px;
+$header-bar-width: 100px;
+
+#sidebar{
+  background: $nearly-white;
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: $sidebar-width;
+  border-right: 1px solid $lighter-gray;
+  @include box-shadow(0.1rem 0 1rem 0 rgba(0,0,0,.1));
 
-  #sidebar-wrapper, #content-wrapper{ height: 100%; }
-  #sidebar-wrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 240px;
-    background: $nearly-white;
-    border-right: 1px solid $lighter-gray;
-    @include box-shadow(0.1rem 0 1rem 0 rgba(0,0,0,.1));
+  #logo{
+    height: 180px;
+    display: block;
+    text-align: center;
+    @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops($light-orange, $orange), center center));
+  }
 
-    #logo{
-      height: 180px;
+  .sidebar-menu{
+    margin: 0;
+
+    a{
+      $padding-left: 65px;
       display: block;
-      text-align: center;
-      @include background(image-url('logo-small.png') no-repeat center center, radial-gradient(color-stops($light-orange, $orange), center center));
-    }
+      padding-left: $padding-left;
+      text-decoration: none;
+      font-size: 18px;
+      height: 50px;
+      line-height: 50px;
+      font-family: 'Scada', sans-serif;
+      color: #777;
 
-    .sidebar-menu{
-      margin: 0;
-
-      a{
-        $padding-left: 65px;
-        display: block;
-        padding-left: $padding-left;
-        text-decoration: none;
-        font-size: 18px;
-        height: 50px;
-        line-height: 50px;
-        font-family: 'Scada', sans-serif;
-        color: #777;
-
-        @each $section in $app-sections {
-          &.#{$section} {
-            $image: 'icons/#{$section}-mini.png';
-            background: image-url($image) no-repeat;
-            background-position: 25px center;
-          }
+      @each $section in $app-sections {
+        &.#{$section} {
+          $image: 'icons/#{$section}-mini.png';
+          background: image-url($image) no-repeat;
+          background-position: 25px center;
         }
+      }
 
-        &.active{
-          $border-left: 3px;
-          color: #000;
-          // background-color: #fff;
-          border-right: $border-left solid $orange;
-          // padding-left: $padding-left - $border-left;
-          // background-position: (25px - $border-left) center;
-
-          &:hover{
-            color: #000;
-          }
-        }
+      &.active{
+        $border-left: 3px;
+        color: #000;
+        // background-color: #fff;
+        border-right: $border-left solid $orange;
+        // padding-left: $padding-left - $border-left;
+        // background-position: (25px - $border-left) center;
 
         &:hover{
-          color: #444;
+          color: #000;
         }
+      }
+
+      &:hover{
+        color: #444;
       }
     }
   }
+}
 
-  #content-wrapper{
-    margin-left: 240px;
-    background: image-url('bg.png') repeat;
+#header-bar{
+  width: 100%;
+  height: $header-bar-width;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  padding: 18px 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  @include bg-linear-nearly-white-to-lightest-gray;
+  @include box-shadow(0 0.1rem 1rem 0 rgba(0,0,0,.1));
 
-    .header{
-      padding: 18px 30px;
-      border-bottom: 1px solid #ddd;
-      position: relative;
-      @include bg-linear-nearly-white-to-lightest-gray;
-      @include box-shadow(0 0.1rem 1rem 0 rgba(0,0,0,.1));
-      @include clearfix;
+  .title{
+    float: left;
+    height: 29px;
+    margin: 0;
+    padding: 16px 0 0 60px;
+    line-height: 29px;
+    font-size: 24px;
+    color: $orange;
 
-      .title{
-        float: left;
-        height: 29px;
-        margin: 0;
-        padding: 16px 0 0 60px;
-        line-height: 29px;
-        font-size: 24px;
-        color: $orange;
-
-        @each $section in $app-sections {
-          &.#{$section} {
-            $image: 'icons/#{$section}.png';
-            background: image-url($image) no-repeat top left;
-          }
-        }
-
-        .subtitle{
-          color: $darker-gray;
-        }
-      }
-
-      .header-buttons{
-        position: relative;
-        float: right;
-
-        button, .button{
-          padding: 0 8px 0 26px;
-          margin-left: 10px;
-          display: inline-block;
-          line-height: 30px;
-          border: none;
-          color: #fff;
-          text-decoration: none;
-          font-size: 14px;
-          font-family: 'Scada', sans-serif;
-          font-weight: normal;
-          @include border-radius(5px);
-          @include background-image(linear-gradient(top, #999, #888));
-
-          &:hover{
-            @include background-image(linear-gradient(top, #888, #777));
-          }
-        }
+    @each $section in $app-sections {
+      &.#{$section} {
+        $image: 'icons/#{$section}.png';
+        background: image-url($image) no-repeat top left;
       }
     }
 
-    #content{
-      padding: 2.4rem;
+    .subtitle{
+      color: $darker-gray;
     }
+  }
+
+  .header-buttons{
+    position: relative;
+    float: right;
+
+    button, .button{
+      padding: 0 8px 0 26px;
+      margin-left: 10px;
+      display: inline-block;
+      line-height: 30px;
+      border: none;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: 'Scada', sans-serif;
+      font-weight: normal;
+      @include border-radius(5px);
+      @include background-image(linear-gradient(top, #999, #888));
+
+      &:hover{
+        @include background-image(linear-gradient(top, #888, #777));
+      }
+    }
+  }
+}
+
+#content-wrapper{
+  margin-left: $sidebar-width;
+  margin-top: $header-bar-width;
+  background: image-url('bg.png') repeat;
+
+  #content{
+    padding: 2.4rem;
   }
 }

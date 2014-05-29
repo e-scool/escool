@@ -1,5 +1,5 @@
 App.HeaderView = Ember.View.extend({
   tagName: 'div',
-  classNames: ['header'],
+  elementId: 'header-bar',
   templateName: 'header'
 });

@@ -1,5 +1,5 @@
 App.SidebarView = Ember.View.extend({
   tagName: 'nav',
-  classNames: ['sidebar-menu'],
+  elementId: 'sidebar',
   templateName: 'sidebar'
 });
