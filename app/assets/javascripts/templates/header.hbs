@@ -1,9 +1,6 @@
-{{!-- <%= header_title %> --}}
-{{!-- <%= render partial: 'shared/header/buttons' %> --}}
-
 <div class="header-buttons">
   <button data-toggle="dropdown">
-    {{#if App.currentUser.isParent}}
+    {{#if currentUser.isParent}}
       {{t 'common.child'}}
     {{else}}
       {{t 'common.classroom'}}
@@ -11,7 +8,7 @@
   </button>
 
   <ul class="dropdown-menu">
-    {{#if App.currentUser.isParent}}
+    {{#if currentUser.isParent}}
       {{!-- <% if current_user.children.count > 1 %>
         <% current_user.children.each do |c| %>
           <% unless c.id == current_user.current_child_id %>

@@ -3,6 +3,7 @@
 //= require ember-data
 
 //= require ./init_app
+//= require_tree ./initializers
 
 //= require_tree ./config
 //= require ./store
