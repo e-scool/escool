@@ -7,6 +7,13 @@
     user: Ember.computed.alias('content')
   });
 
+  var classroomCookie = 'escool_current_classroom_id';
+  var childCookie = 'escool_current_child_id';
+
+  var setCookie = function(key, value) {
+    return $.cookie(key, value, { expires: 30 });
+  };
+
   App.initializer({
     name: 'session',
     after: 'store',
@@ -22,7 +29,25 @@
 
       var promise = new Ember.RSVP.Promise(function(resolve) {
         user.then(function(user) {
-          resolve(user);
+          if (user.get('isParent')) {
+            user.get('children').then(function(children) {
+              if (!$.cookie(childCookie)) {
+                setCookie(childCookie, children.get('firstObject.id'));
+              }
+
+              user.set('currentChild', store.find('child', $.cookie(childCookie)));
+              resolve(user);
+            });
+          } else {
+            user.get('classrooms').then(function(classrooms) {
+              if (!$.cookie(classroomCookie)) {
+                setCookie(classroomCookie, classrooms.get('firstObject.id'));
+              }
+
+              user.set('currentClassroom', store.find('classroom', $.cookie(classroomCookie)));
+              resolve(user);
+            });
+          }
         });
       });
 
@@ -51,8 +76,8 @@
     after: 'session',
 
     initialize: function(container, application) {
-      container.lookup('session:main').then(function(session) {
-        application.register('user:current', session, { instantiate: false, singleton: true });
+      container.lookup('session:main').then(function(user) {
+        application.register('user:current', user, { instantiate: false, singleton: true });
 
         application.inject('controller', 'currentUser', 'user:current');
         application.inject('route',      'currentUser', 'user:current');
