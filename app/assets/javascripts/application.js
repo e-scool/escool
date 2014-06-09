@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.cookie
 //= require moment-with-langs.min
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-es
