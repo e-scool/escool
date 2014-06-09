@@ -5,19 +5,19 @@ App.User = DS.Model.extend({
   type:     DS.attr('string'),
 
   // Relations
-  // team:                       DS.belongsTo('team'),
-  // friends:                    DS.hasMany('user',{async: true}),
+  children:   DS.hasMany('child', { async: true }),
+  classrooms: DS.hasMany('classroom', { async: true }),
 
   // Properties
   isParent: function(){
     return this.get('type') == 'Parent';
-  }.property(),
+  }.property('type'),
 
   isTeacher: function(){
     return this.get('type') == 'Teacher';
-  }.property(),
+  }.property('type'),
 
   isSchoolManager: function(){
     return this.get('type') == 'SchoolManager';
-  }.property()
+  }.property('type')
 });
